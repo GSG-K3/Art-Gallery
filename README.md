@@ -54,14 +54,14 @@ run these commands in your terminal:
 
 ## work group 
 #### team leader 
-- [somaya](https://github.com/someyaaltous)
+- [Somaya](https://github.com/someyaaltous)
 #### design support 
 - [Ivo Saurio](https://github.com/ivoriginal)
 #### project owner
 - Lina 
 #### team members
-- [bayan Jubah](https://github.com/bayan-404)
+- [Bayan Jubah](https://github.com/bayan-404)
 - [Bayan Seder](https://github.com/bayanseder)
 - [Duha](https://github.com/Duha96)
-- [abood Switi](https://github.com/aboodswiti)
+- [Abood Switi](https://github.com/aboodswiti)
 
