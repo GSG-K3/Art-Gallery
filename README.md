@@ -63,5 +63,5 @@ run these commands in your terminal:
 - [bayan Jubah](https://github.com/bayan-404)
 - [Bayan Seder](https://github.com/bayanseder)
 - [Duha](https://github.com/Duha96)
-- [abed Switi](https://github.com/aboodswiti)
+- [abood Switi](https://github.com/aboodswiti)
 
