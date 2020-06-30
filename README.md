@@ -56,9 +56,9 @@ run these commands in your terminal:
 #### team leader 
 - [somaya](https://github.com/someyaaltous)
 #### design support 
-ivosaurio
+- [Ivo Saurio](https://github.com/ivoriginal)
 #### project owner
-lina 
+- Lina 
 #### team members
 - [bayan Jubah](https://github.com/bayan-404)
 - [Bayan Seder](https://github.com/bayanseder)
