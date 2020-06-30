@@ -1,0 +1,26 @@
+{
+  "name": "art-gallery",
+  "version": "1.0.0",
+  "description": "1) Arab artists don’t have platform to share their artwork and the social media is not a reliable place to sell art beside it doesn't protect their copyright  2) Clients don't have a platform with a different type of art work , and it's hard for them to find a piece of art that fits their place . ### the solution : an application that allows the artists to market their art work , and allows the clients to customise some of the arts .",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSG-K3/Art-Gallery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GSG-K3/Art-Gallery/issues"
+  },
+  "homepage": "https://github.com/GSG-K3/Art-Gallery#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
