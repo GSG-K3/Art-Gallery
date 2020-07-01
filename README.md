@@ -12,7 +12,7 @@ An application that allows the artists to market their art work , and allows the
 
 ### User Story : 
 #### Artist:
-- As an artist, see the home page that have search field, the recent art, customised art section, the gallery and a nav bar
+- As an artist, I can see the home page that have search field, the recent art, customised art section, the gallery and a nav bar
 - As an artist, I can create an account and be able to sign in
 - As an artist, I can see my profile and be able to add my art that I want to sell, be able to add art that can be customised, and see the sold art
 - As an artist, I can add a picture, artwork name , description, dimensions, categories and price
