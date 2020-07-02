@@ -1,1 +1,15 @@
-// code will call by dbBuild.js to make connection with SQL 
+const { Pool } = require('pg')
+
+require('env2')('./config.env')
+
+const connectionString = process.env.DATABASE_URL
+console.log(connectionString, 'connectionString')
+
+if (!connectionString) {
+  throw new Error('set a DATABASE_URL env variable')
+}
+
+module.exports = new Pool({
+  connectionString: connectionString,
+  ssl: true
+})
