@@ -8,8 +8,8 @@ const sql2 = fs.readFileSync(path.join(__dirname, 'dummyData.sql')).toString()
 
 const runDbBuild = (sql, sql2) => {
   return dbConnection
-    .query(sql, sql2)
-    .then((res) => res)
+    .query(sql)
+    .then((res) => dbConnection.query(sql2))
     .catch((err) => console.log(err))
 }
 
