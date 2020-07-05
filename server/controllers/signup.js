@@ -6,14 +6,12 @@ const addUser = require('../database/queries/addUser')
 
 const signup = async (req, res) => {
   const data = req.body
-  console.log(data)
   const { error } = signUpValidation(data)
   if (!error) {
     const secretPassword = data.password + secret
     const hashPassword = (password) => bcrypt.hash(password, 10)
-    
+
     data.password = await hashPassword(secretPassword)
-    console.log(data.password)
     addUser(data)
       .then(response => res.status(200).json({
         message: 'Successfully registered'
