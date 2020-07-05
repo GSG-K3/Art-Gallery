@@ -19,13 +19,16 @@
   },
   "homepage": "https://github.com/GSG-K3/Art-Gallery#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "concurrently": "^5.2.0",
+    "cookie-parser": "^1.4.5",
     "env2": "^2.2.2",
     "eslint": "^6.8.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^7.17.7"
   },
   "devDependencies": {
-    "pg": "^7.17.7",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
