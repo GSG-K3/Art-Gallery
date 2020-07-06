@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/GSG-K3/Art-Gallery#readme",
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "bcrypt": "^5.0.0",
     "concurrently": "^5.2.0",
     "cookie-parser": "^1.4.5",
