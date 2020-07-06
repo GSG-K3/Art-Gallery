@@ -1,20 +1,14 @@
 const bcrypt = require('bcrypt')
-const { sign } = require('jsonwebtoken')
 const getPassword = require('../database/queries/getPassword')
+const createToken = require('../middlewares/createToken')
 const { SECRET } = process.env
-
-const createToken = (email, password, id, name, role, secret) => {
-  return sign(
-    { email, password, id, name, role }, secret
-  )
-}
 
 const login = (req, res) => {
   const { email, password } = req.body
 
   if (email.trim().length === 0 || password.trim().length === 0) {
     res.status(400).json({
-      message: 'All Fields Are equered !!!!!',
+      message: 'All Fields Are Requered !!!!!',
       status: 400
     })
   } else {
