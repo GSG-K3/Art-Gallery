@@ -1,7 +1,5 @@
-const bcrypt = require('bcrypt')
 const getPassword = require('../database/queries/getPassword')
 const createToken = require('../middlewares/createToken')
-const { SECRET } = process.env
 
 const login = (req, res) => {
   const { email, password } = req.body
@@ -20,28 +18,25 @@ const login = (req, res) => {
             status: 500
           })
         }
-
-        const hash = result.rows[0].password
-        bcrypt.compare(password, hash, (error, compared) => {
-          if (error) {
-            return res.json({ error })
-          }
-          if (compared) {
-            const { id, name, role } = result.rows[0]
-            const token = createToken(email, password, id, name, role, SECRET)
-            return res
-              .cookie('token', token, { maxAge: 900000, httpOnly: true })
-              .status(200)
-              .json({ message: 'you are loged in successfully!!!!' })
-          } else {
-            res.status(500).json({ message: 'password or email incorrect ' })
-          }
+        const token = createToken(result, password, email)
+        console.log(token)
+        if (token) {
+          res
+            .cookie('token', token, { maxAge: 900000, httpOnly: true })
+            .status(200)
+            .json({ message: 'you are loged in successfully!!!!' })
         }
-
-        )
-      })
+      }
+      )
       .catch((err) => console.log(err))
   }
 }
 
 module.exports = login
+// const { id, name, role } = result.rows[0]
+
+// const token = createToken(email, password, id, name, role, SECRET)
+// return res
+//   .cookie('token', token, { maxAge: 900000, httpOnly: true })
+//   .status(200)
+//   .json({ message: 'you are loged in successfully!!!!' })
