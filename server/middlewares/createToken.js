@@ -1,24 +1,25 @@
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const { SECRET } = process.env
+const createToken = async (user, password) => {
+  const userPassword = user.password
 
-const createToken = async (result, password, email) => {
-  const data = result.rows[0]
-  const role = data.role
-  console.log(data, 'response')
+  try {
+    const match = await bcrypt.compare(password, userPassword)
 
-  const hash = data.password
-  await bcrypt.compare(password, hash, (error, compared) => {
-    if (error) {
-      console.log(error)
-      return error
-    } else if (compared) {
-      return jwt.sign(
-        { data, role }, SECRET
-      )
+    if (!match) {
+      return null
     }
+    return jwt.sign(
+      {
+        id: user.id,
+        name: user.name,
+        role: user.role
+      }, SECRET
+    )
+  } catch (error) {
+    return null
   }
-  )
 }
 
 module.exports = createToken
