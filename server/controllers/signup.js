@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt')
-require('env2')('config.env')
+
 const secret = process.env.SECRET
 const signUpValidation = require('../helper/signupValidation')
 const addUser = require('../database/queries/addUser')
