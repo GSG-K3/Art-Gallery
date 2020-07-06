@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcrypt')
 const { sign } = require('jsonwebtoken')
 const getPassword = require('../database/queries/getPassword')
 const { SECRET } = process.env

@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/GSG-K3/Art-Gallery#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcrypt": "^5.0.0",
     "concurrently": "^5.2.0",
     "cookie-parser": "^1.4.5",
     "env2": "^2.2.2",
