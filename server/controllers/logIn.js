@@ -33,10 +33,3 @@ const login = (req, res) => {
 }
 
 module.exports = login
-// const { id, name, role } = result.rows[0]
-
-// const token = createToken(email, password, id, name, role, SECRET)
-// return res
-//   .cookie('token', token, { maxAge: 900000, httpOnly: true })
-//   .status(200)
-//   .json({ message: 'you are loged in successfully!!!!' })
