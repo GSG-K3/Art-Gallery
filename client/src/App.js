@@ -1,9 +1,10 @@
 import React from 'react';
+import RecentArtSlider from './Components/Common/RecentArtSlider/RecentArtSlider'
 
 function App() {
   return (
     <div>
-      <h1>heay you</h1>
+      <RecentArtSlider />
     </div>
   );
 }
