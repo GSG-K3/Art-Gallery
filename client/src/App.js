@@ -1,10 +1,15 @@
 import React from 'react';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import theme from './Theme/materialTheme'
+import Home from './Components/Common/homePage/Home'
 
 function App() {
   return (
-    <div>
-      <h1>heay you</h1>
+    <MuiThemeProvider theme={theme()}>
+    <div className="App">
+     <Home/>
     </div>
+    </MuiThemeProvider>
   );
 }
 
