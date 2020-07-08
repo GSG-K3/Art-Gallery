@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     header: {
       position: 'relative',
       alignItems: 'center',
-      paddingLeft: theme.spacing(1),
+      padding: theme.spacing(1),
     },
     img: {
       height: 255,
@@ -25,15 +25,12 @@ const useStyles = makeStyles((theme) => ({
       bottom: 30,
       left: 40,
     },
-    stepperIcon:{
+    button:{
       background:'none',
-      marginLeft:40,
-      padding:0,
       position: 'absolute',
-      bottom: 0,
+      bottom: 23,
       right: 1,
-      maxWidth:400,
-    }
+    },
   }));
 
   export default useStyles

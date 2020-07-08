@@ -1,6 +1,5 @@
 import React , {useEffect} from 'react';
 import { useTheme } from '@material-ui/core/styles';
-import MobileStepper from '@material-ui/core/MobileStepper';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -11,6 +10,7 @@ import { autoPlay } from 'react-swipeable-views-utils';
 import { Grid } from '@material-ui/core'
 import axios from 'axios'
 import useStyles from './sliderStyle'
+import { white } from "@material-ui/core/colors"
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -20,17 +20,15 @@ function SwipeableTextMobileStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
   const [recentArt , setRecentArt] = React.useState(null)
   const [error , setError] = React.useState(null)
-  const maxSteps =3
+  const MAX_STEPS = 4
 
   useEffect(()=>{
       if(recentArt){
          return
-      }
-       else {
-        axios.get('/api/get-art')
+      }   
+    else { axios.get('/api/recent')
         .then(res => setRecentArt(res.data))
-        .catch(err => setError(err))
-       }
+        .catch(err => setError(err))}
   },[recentArt])
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -58,19 +56,11 @@ function SwipeableTextMobileStepper() {
                         <Paper square elevation={0} className={classes.header}>
                             <Typography className={classes.text}>{recentArt[activeStep].name}</Typography>
                             <img className={classes.img} src={recentArt[activeStep].photo_url} alt={step.name} />
-                            <MobileStepper
-                            variant="progress"
-                            steps={maxSteps}
-                            className={classes.stepperIcon}
-                            activeStep={activeStep}
-                            nextButton={
                                 <Button size="small" onClick={handleNext} 
-                                disabled={activeStep === maxSteps - 1}
+                                disabled={activeStep === MAX_STEPS - 1} className={classes.button}
                                 >
-                                {theme.direction === 'rtl' ? <KeyboardArrowLeft   /> : <KeyboardArrowRight color='primary' />}
+                                {theme.direction === 'rtl' ? <KeyboardArrowLeft   /> : <KeyboardArrowRight color='secondary' />}
                                 </Button>
-                            }
-                            />
                         </Paper>
                     ) : null}
                 </div>
