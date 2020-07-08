@@ -10,7 +10,6 @@ import { autoPlay } from 'react-swipeable-views-utils';
 import { Grid } from '@material-ui/core'
 import axios from 'axios'
 import useStyles from './sliderStyle'
-import { white } from "@material-ui/core/colors"
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
