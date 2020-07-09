@@ -21,13 +21,13 @@ return(
  <Grid className = {classes.root}>
   <Slider {...setting}  className = {classes.slide}>
   <div>
-    <Button className = {classes.button} variant="outlined">ديجيتال</Button>
+    <Button className = {classes.button} variant="outlined">فسيفساء</Button>
   </div>
   <div  >
   <Button className = {classes.button} variant="outlined" > لوحات </Button>
   </div>
   <div >
-  <Button className = {classes.button} variant="outlined" >صور فوتوقرافية</Button>
+  <Button className = {classes.button} variant="outlined" >صور فوتوجرافية</Button>
   </div>
   <div >
   <Button className = {classes.button} variant="outlined">تطريز</Button> 
