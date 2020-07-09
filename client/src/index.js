@@ -11,7 +11,7 @@ ReactDOM.render(
       <Grid container direction="column">
         <App />
       </Grid>
-  </React.StrictMode>,
+  </React.StrictMode>
   </MuiThemeProvider>,
   document.getElementById('root')
 )

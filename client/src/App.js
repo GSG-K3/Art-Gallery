@@ -1,14 +1,19 @@
 import React from 'react';
-import Home from './Components/Common/homePage/Home'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
+import Home from './Components/Common/homePage/Home'
+import Login from './Components/Layouts/Login/Login'
 import RecentArtSlider from './Components/Common/RecentArtSlider/RecentArtSlider'
 
 function App() {
   return (
-    <div>
-      <RecentArtSlider />     
-      <Home/>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/' component={RecentArtSlider} />
+        <Route exact path="/login" component={Login} />
+      </Switch>
+
+      </Router>
   );
 }
 
