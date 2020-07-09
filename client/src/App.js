@@ -2,11 +2,13 @@ import React from 'react';
 import Home from './Components/Common/homePage/Home'
 
 import RecentArtSlider from './Components/Common/RecentArtSlider/RecentArtSlider'
+import Header from './Components/Common/Header/Header'
 
 function App() {
   return (
     <div>
-      <RecentArtSlider />     
+      <Header />
+      <RecentArtSlider />    
       <Home/>
     </div>
   );
