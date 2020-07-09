@@ -10,15 +10,16 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles({
   root: {
     maxWidth: 190,
+    maxHeight: 300,
   },
 });
 
 export default function ArtCard(props) {
   const classes = useStyles();
-  const { title, imageurl, artist } = props;
+  const { title, imageurl ,category} = props;
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} >
       <CardActionArea>
         <CardMedia
           component="img"
@@ -28,11 +29,11 @@ export default function ArtCard(props) {
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="subtitle1" component="h2">
             {title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {artist}
+          <Typography variant="body2" color="textSecondary" component="p" >
+            {category}
           </Typography>
         </CardContent>
       </CardActionArea>
