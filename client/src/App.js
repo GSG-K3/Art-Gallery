@@ -8,6 +8,7 @@ function App() {
     <div>
       <RecentArtSlider />     
       <Home/>
+      <CategorisSlider/>
     </div>
   );
 }
