@@ -4,6 +4,8 @@ import { Grid, Box } from "@material-ui/core";
 import ArtCard from "../artCard/ArtCard";
 
 function Home() {
+
+
   return (
     <Grid container direction="row" spacing={2} justify="space-around">
       {data.map((info) => {
