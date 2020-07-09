@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider from 'react-slick';
 import {Button} from '@material-ui/core'
-import '../../../node_modules/slick-carousel/slick/slick.css';
+import '../../../../node_modules/slick-carousel/slick/slick.css';
 import "slick-carousel/slick/slick-theme.css";
 import {Grid} from '@material-ui/core'
 import useStyles from './Style'
