@@ -6,11 +6,14 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+import green from "@material-ui/core/colors/green";
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 190,
     maxHeight: 300,
+    border:'2px solid',
+    borderColor:green[400],
   },
 });
 
