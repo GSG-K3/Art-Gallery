@@ -1,9 +1,13 @@
 import React from 'react';
+import Home from './Components/Common/homePage/Home'
+
+import RecentArtSlider from './Components/Common/RecentArtSlider/RecentArtSlider'
 
 function App() {
   return (
     <div>
-      <h1>heay you</h1>
+      <RecentArtSlider />     
+      <Home/>
     </div>
   );
 }
