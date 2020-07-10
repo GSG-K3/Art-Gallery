@@ -6,7 +6,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeIcon from '@material-ui/icons/Home';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+
 
 
 const NavBar = () => {
