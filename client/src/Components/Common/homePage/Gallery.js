@@ -1,0 +1,50 @@
+import React, { useEffect, useState } from 'react'
+import Typography from "@material-ui/core/Typography";
+import useStyles from "./style";
+import ArtCard from "../artCard/ArtCard";
+import axios from "axios";
+import { Grid } from "@material-ui/core";
+
+function Gallery(){
+    const classes = useStyles();
+    const [artwork, setArtwork] = useState(null);
+    useEffect(() => {
+      if (artwork) {
+        return;
+      }
+      axios
+        .get("/api/get-art")
+        .then((result) => setArtwork(result.data))
+        .catch((err) => console.log(err));
+    }, [artwork]);
+    return(
+        <div>
+             <div className={classes.galleryDiv} >
+        <Typography variant="h6" align="right" className={classes.text}>
+          المعرض الفني
+        </Typography>
+        <Typography variant="p" align="right" className={classes.text}>
+          اخر الاعمال الفنية المضافه لمعرضنا
+        </Typography>
+      </div>
+      <Grid container direction="row" spacing={2} justify="space-around" >
+        {artwork
+          ? artwork.map((art) => {
+              return (
+                <Grid item xs={6} direction="row">
+                  <ArtCard
+                    title={art.name}
+                    category={art.caregory}
+                    imageurl={art.photo_url}
+                    key={art.id}
+                  />
+                </Grid>
+              );
+            })
+          : null}
+      </Grid>
+        </div>
+    )
+}
+
+export default Gallery
