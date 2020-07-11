@@ -13,7 +13,7 @@ function Home() {
   
   return (
     <Grid container direction='column' className={classes.root}>
-      <Header />
+      <Header pageName='ART GALLERY' />
       <RecentArtSlider />
       <CategoriesHomDiv />
       <CustomizeHomeDiv />

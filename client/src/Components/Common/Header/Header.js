@@ -7,15 +7,15 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 
 
-const Header = () => {
+const Header = (props) => {
     const classes = useStyles();
+    const {pageName}=props
 return(
-
     <div className={classes.root}>
         <Toolbar >
           
           <Typography noWrap className={classes.title}>
-            ART Gallery
+            {pageName}
           </Typography>
             <IconButton edge="start" className={classes.shopButton} color="#DADADA" aria-label="shop">
             <ShoppingCartIcon />
