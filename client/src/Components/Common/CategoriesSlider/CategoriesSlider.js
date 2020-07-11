@@ -26,8 +26,7 @@ const CategorisSlider = () => {
           </div>
           <div>
             <Button className={classes.button} variant='outlined'>
-              {" "}
-              لوحات{" "}
+              لوحات
             </Button>
           </div>
           <div>
