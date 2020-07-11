@@ -10,6 +10,8 @@ import { autoPlay } from 'react-swipeable-views-utils';
 import { Grid } from '@material-ui/core'
 import axios from 'axios'
 import useStyles from './sliderStyle'
+import CircularProgress from '@material-ui/core/CircularProgress'
+import green from '@material-ui/core/colors/green';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -67,7 +69,9 @@ function SwipeableTextMobileStepper() {
             </AutoPlaySwipeableViews>
         </Grid>
      </Grid>
-       :null }
+       :<div className={classes.root} style={{display:'flex', justifyContent:'center'}}>
+       <CircularProgress  style={{ color: green[400] }} />
+     </div> }
     </div>
   );
 }

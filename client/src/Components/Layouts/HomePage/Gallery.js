@@ -4,6 +4,9 @@ import useStyles from './style';
 import ArtCard from '../../Common/ArtCard/ArtCard';
 import axios from 'axios';
 import { Grid } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress'
+import green from '@material-ui/core/colors/green';
+
 
 function Gallery() {
   const classes = useStyles();
@@ -47,7 +50,9 @@ function Gallery() {
                 </Grid>
               );
             })
-          : null}
+          : <div className={classes.root} style={{display:'flex', justifyContent:'center'}}>
+          <CircularProgress  style={{ color: green[400] }} />
+        </div>}
       </Grid>
     </div>
   );
