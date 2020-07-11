@@ -15,7 +15,7 @@ const useStyles = makeStyles ((theme)=>({
   borderRadius: 50,
  },
  slide : {
-  width: 380,
+  width: 350,
   paddingTop :10,
   paddingRight : 5,
   paddingLeft : 5,

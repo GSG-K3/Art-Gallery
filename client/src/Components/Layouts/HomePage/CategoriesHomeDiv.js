@@ -10,7 +10,7 @@ function CategoriesHomeDiv() {
   const classes = useStyles();
 
   return (
-    <Grid container direction='column' className={classes.category}>
+    <div direction='column' className={classes.category}>
       <div className={classes.textDiv}>
         <ArrowBackIcon style={{ color: green[400] }} fontSize='large' />
         <Typography variant='h6' align='right' className={classes.text}>
@@ -28,7 +28,7 @@ function CategoriesHomeDiv() {
         تصفح الاعمال الفنية حسب الفئة
       </Typography>
       <Categories />
-    </Grid>
+    </div>
   );
 }
 
