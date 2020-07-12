@@ -23,7 +23,7 @@ CREATE TABLE artwork
  photo_url VARCHAR NOT NULL,
  description TEXT,
  price INT NOT NULL,
- caregory VARCHAR(50) NOT NULL,
+ category VARCHAR(50) NOT NULL,
  size VARCHAR(20) NOT NULL,
  sold BOOLEAN,
  type VARCHAR NOT NULL
