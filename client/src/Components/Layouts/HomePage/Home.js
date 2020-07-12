@@ -6,7 +6,7 @@ import CategoriesHomDiv from './CategoriesHomeDiv';
 import CustomizeHomeDiv from './CustomizeHomeDiv'
 import Gallery from './Gallery'
 import useStyles from './style';
-
+import Navbar from './Components/Common/Navbar/Navbar';
 
 function Home() {
   const classes = useStyles();
@@ -18,6 +18,7 @@ function Home() {
       <CategoriesHomDiv />
       <CustomizeHomeDiv />
       <Gallery />
+      <Navbar />
     </Grid>
   );
 }
