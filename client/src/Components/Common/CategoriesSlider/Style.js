@@ -2,7 +2,7 @@ import {makeStyles} from '@material-ui/core'
 
 const useStyles = makeStyles ((theme)=>({
   root : {
-    minWidth : 330,
+    minWidth : 400,
     display : 'flex',
     justifyContent :'center',
     width: "100%",
@@ -15,7 +15,7 @@ const useStyles = makeStyles ((theme)=>({
   borderRadius: 50,
  },
  slide : {
-  width: 300,
+  width: 350,
   paddingTop :10,
   paddingRight : 5,
   paddingLeft : 5,

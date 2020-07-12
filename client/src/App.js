@@ -1,17 +1,14 @@
 import React from 'react';
-import Home from './Components/Common/homePage/Home'
-import CategorisSlider from './Components/Common/categoriesSlider/CategoriesSlider'
-import RecentArtSlider from './Components/Common/RecentArtSlider/RecentArtSlider'
-import Header from './Components/Common/Header/Header'
+import Home from './Components/Layouts/HomePage/Home'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <div>
-      <Header />
-      <RecentArtSlider />    
-      <Home/>
-      <CategorisSlider/>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path='/' component={Home} />
+      </Switch>
+    </Router>  
   );
 }
 
