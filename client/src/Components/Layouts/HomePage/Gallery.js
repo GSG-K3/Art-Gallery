@@ -42,8 +42,8 @@ function Gallery() {
               return (
                 <Grid item xs={6}>
                   <ArtCard
-                    title={art.name}
-                    category={art.caregory}
+                    title={art.titel}
+                    category={art.category}
                     imageurl={art.photo_url}
                     cardKey={art.id}
                   />
