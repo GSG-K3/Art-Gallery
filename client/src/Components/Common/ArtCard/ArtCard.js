@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default  ArtCard = (props)=> {
+const  ArtCard = (props)=> {
   const classes = useStyles();
   const { title, imageurl ,category, cardKey } = props;
 
@@ -46,3 +46,6 @@ export default  ArtCard = (props)=> {
     </Card>
   );
 }
+
+export default ArtCard
+
