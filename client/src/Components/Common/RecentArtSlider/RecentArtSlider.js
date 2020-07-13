@@ -55,8 +55,8 @@ function SwipeableTextMobileStepper() {
                     <div key={step.name}>
                     {Math.abs(activeStep - index) <= 2 ? (
                         <Paper square elevation={0} className={classes.header}>
-                            <Typography className={classes.text}>{recentArt[activeStep].name}</Typography>
-                            <img className={classes.img} src={recentArt[activeStep].photo_url} alt={step.name} />
+                            <Typography className={classes.text}>{recentArt[activeStep].titel}</Typography>
+                            <img className={classes.img} src={recentArt[activeStep].photo_url} alt={step.titel} />
                                 <Button size="small" onClick={handleNext} 
                                 disabled={activeStep === MAX_STEPS - 1} className={classes.button}
                                 >
