@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from './style';
 import green from '@material-ui/core/colors/green';
 
-function CategoriesHomeDiv() {
+const CategoriesHomeDiv = ()=> {
   const classes = useStyles();
 
   return (

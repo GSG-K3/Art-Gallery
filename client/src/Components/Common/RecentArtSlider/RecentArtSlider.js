@@ -16,7 +16,7 @@ import {Link} from 'react-router-dom'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-function SwipeableTextMobileStepper() {
+const SwipeableTextMobileStepper = ()=> {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);

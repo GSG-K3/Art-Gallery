@@ -5,7 +5,7 @@ import customizePhoto from './customize.png';
 import useStyles from './style';
 import Typography from '@material-ui/core/Typography';
 
-function CustomizeHomeDiv() {
+const CustomizeHomeDiv = ()=> {
   const classes = useStyles();
 
   return (

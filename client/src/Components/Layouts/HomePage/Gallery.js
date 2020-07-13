@@ -8,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import green from '@material-ui/core/colors/green';
 
 
-function Gallery() {
+const Gallery = ()=> {
   const classes = useStyles();
   const [artwork, setArtwork] = useState(null);
   useEffect(() => {

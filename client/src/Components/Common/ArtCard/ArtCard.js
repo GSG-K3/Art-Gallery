@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ArtCard(props) {
+export default  ArtCard = (props)=> {
   const classes = useStyles();
   const { title, imageurl ,category, cardKey } = props;
 
