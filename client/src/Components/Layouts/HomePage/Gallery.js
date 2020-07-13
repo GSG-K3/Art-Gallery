@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Typography from '@material-ui/core/Typography';
 import useStyles from './style';
-import ArtCard from '../../Common/ArtCard/ArtCard';
+import ArtCard from '../ArtCard/ArtCard';
 import axios from 'axios';
 import { Grid } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress'
