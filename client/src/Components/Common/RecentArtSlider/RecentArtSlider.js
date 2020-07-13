@@ -12,6 +12,7 @@ import axios from 'axios'
 import useStyles from './sliderStyle'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import green from '@material-ui/core/colors/green';
+import {Link} from 'react-router-dom'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -56,7 +57,9 @@ function SwipeableTextMobileStepper() {
                     {Math.abs(activeStep - index) <= 2 ? (
                         <Paper square elevation={0} className={classes.header}>
                             <Typography className={classes.text}>{recentArt[activeStep].titel}</Typography>
+                            <Link to={{pathname:`/art/${recentArt[activeStep].id}`}} >
                             <img className={classes.img} src={recentArt[activeStep].photo_url} alt={step.titel} />
+                            </Link>
                                 <Button size="small" onClick={handleNext} 
                                 disabled={activeStep === MAX_STEPS - 1} className={classes.button}
                                 >

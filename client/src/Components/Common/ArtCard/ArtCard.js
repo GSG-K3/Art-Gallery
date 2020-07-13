@@ -24,7 +24,7 @@ export default function ArtCard(props) {
 
   return (
     <Card className={classes.root} key={cardKey} >
-      <Link to={{pathname: `/art/${cardKey}`}} >
+      <Link to={{pathname: `/art/${cardKey}`}} style={{textDecoration:'none'}} >
       <CardActionArea >
         <CardMedia
           component='img'
