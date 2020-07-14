@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
   formdiv: {
     display: 'flex',
       width: "100%",
-      height: '90vh',
+      height: '80vh',
       flexDirection: 'column',
     alignItems:'center',
     justifyContent:'center',
@@ -41,6 +41,10 @@ marginTop:theme.spacing(3),
   password:{
     width:'70vw',
     maxWidth:'400px',
+
+  },
+  text:{
+    textAlign:'center',
 
   }
  
