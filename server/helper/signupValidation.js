@@ -7,7 +7,7 @@ const signUpValidation = (data) => {
     phone: Joi.number().min(8),
     url: Joi.string(),
     password: Joi.string().min(6).required(),
-    repeat_password: Joi.ref('password'),
+    repeatPassword: Joi.ref('password'),
     role: Joi.string()
 
   })
