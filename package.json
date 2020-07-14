@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GSG-K3/Art-Gallery.git"
+    "url": "https://github.com/YakoobHammouri/Art-Gallery.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GSG-K3/Art-Gallery/issues"
+    "url": "https://github.com/YakoobHammouri/Art-Gallery.git/issues"
   },
-  "homepage": "https://github.com/GSG-K3/Art-Gallery#readme",
+  "homepage": "https://github.com/YakoobHammouri/Art-Gallery.git#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "bcrypt": "^5.0.0",
