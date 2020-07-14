@@ -1,88 +1,141 @@
 import React, { useState } from "react";
-import {TextField,Button,Container} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import axios from 'axios'
-
-const useStyles = makeStyles((theme) => ({
-  formdiv: {
-    display: 'flex',
-      width: "100%",
-      height: '100vh',
-      flexDirection: 'column',
-    alignItems:'center',
-    justifyContent:'center',
-alignContent:'center',
-
-  },
-  Container:{
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems:'center',
-  },
-  input:{
-width:'70vw',
-maxWidth:'400px',
-marginBottom:theme.spacing(3),
-
-  }
-  
-}));
-
+import { Link } from "react-router-dom";
+import {
+  TextField,
+  Button,
+  Container,
+  Box,
+} from "@material-ui/core";
+import Chip from "@material-ui/core/Chip";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
+import useStyles from "../../../Theme/FormsStyles";
+import axios from "axios";
+import PasswordForm from './PasswordForm'
 export default function Login() {
   const classes = useStyles();
-  const [email, setEmail] = useState('');
-  const [error , setError] = React.useState(null)
+  const [error, setError] = useState(false);
+  const [errMessage, setErrMessage] = useState(null);
+  const [accountStatus, setAccountStatus] = useState(null);
+  const [values, setValues] = React.useState({
+    email: "",
+    password: "",
+    showPassword: false,
+  });
 
-  function handleNameChange(e){
-    setEmail(e.target.value)
-}
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+    setErrMessage(null);
+    setError(false)
+  };
 
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const handleDelete = () => {
+    setAccountStatus(null);
+    setErrMessage(null);
+
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    //alert(`Submitting Name ${email}`)
-
+    const email = values.email;
     axios
-      .post("/api/checkAccount", {email})
+      .post("/api/checkAccount", { email })
       .then((result) => {
-       console.log('result.status',result.data.success);
+        setAccountStatus(result.data.status);
         
       })
-      .catch((err) => console.log(err.response.data.message )
-      );
+      .catch((err) => {setErrMessage(err.response.data.message)
+       setError(!error);
+      });
 
-    setEmail('')
+  };
 
-}
 
+  const handlePasswordSubmit = (evt) => {
+    evt.preventDefault();
+
+    axios
+      .post("/api/login", { values })
+      .then((result) => {
+        console.log("result.status", result.data.message);
+      })
+      .catch((err) => {setErrMessage(err.response.data.message)
+        setError(!error);
+      });
+
+  };
 
   return (
-    <Container className={classes.Container}  >
+    <Container className={classes.Container}>
+      {accountStatus !== "Exist" ? (
+        <form
+          onSubmit={handleSubmit}
+          className={classes.formdiv}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField
+            error={error}
+            className={classes.input}
+            value={values.email}
+            onChange={handleChange("email")}
+            id="email"
+            name="email"
+            color="primary"
+            autoFocus={true}
+            margin={"dense"}
+            required={true}
+            label="البريد الإلكتروني"
+            autoComplete="current-email"
+            variant="outlined"
+            helperText={errMessage}
 
-    <form onSubmit={handleSubmit} className={classes.formdiv} noValidate autoComplete="off">
-        <TextField
-          className={classes.input}
-          value={email}
-          onChange={handleNameChange}
-          id="email"
-          name="email"
-          color="main"
-          autoFocus={true}
-          margin={"dense"}
-          required={true}
-          label="Email"
-          autoComplete="current-email"
-          variant="outlined"
-        />
-      <div  >
-      <Button onClick={handleSubmit} variant="contained"  color="primary" className={classes.input}>
-        Next
-      </Button>
-    </div>
+          />
+          <Box className={classes.message}>
+            {errMessage ? (
+              <Link to='/signup' className='text-link'>
+             <p > .مستخدم جديد؟ أنشئ حسابك.</p>
 
-    </form>     
+            </Link>
+            ) : null}
+
+            <Button
+              onClick={handleSubmit}
+              variant="contained"
+              color="primary"
+              className={classes.input}
+            >
+              التالي
+            </Button>
+          </Box>
+        </form>
+      ) : (
+        <div className={classes.formdiv}>
+          <Chip
+            className={classes.margin}
+            icon={<MailOutlineIcon />}
+            label={values.email}
+            variant="outlined"
+            onDelete={handleDelete}
+          />
+          <PasswordForm
+            handlePasswordSubmit = {handlePasswordSubmit}
+            errMessage = {errMessage}
+            showPassword = {values.showPassword}
+            password = {values.password}
+            handleChange = {handleChange}
+            handleClickShowPassword = {handleClickShowPassword}
+            handleMouseDownPassword = {handleMouseDownPassword}
+            error={error}
+          />
+        </div>
+      )}
     </Container>
-
-
   );
 }
