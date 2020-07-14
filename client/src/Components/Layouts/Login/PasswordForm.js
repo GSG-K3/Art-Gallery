@@ -11,7 +11,8 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import useStyles from "../../../Theme/FormsStyles";
 
-export default function PasswordForm(props) {
+
+const PasswordForm = (props) => {
 
 
 const classes = useStyles();
@@ -64,3 +65,4 @@ handleChange , handleClickShowPassword, handleMouseDownPassword
 
   )
 }
+export default PasswordForm;

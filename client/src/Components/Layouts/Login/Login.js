@@ -5,13 +5,18 @@ import {
   Button,
   Container,
   Box,
+  Grid
 } from "@material-ui/core";
 import Chip from "@material-ui/core/Chip";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import useStyles from "../../../Theme/FormsStyles";
 import axios from "axios";
 import PasswordForm from './PasswordForm'
-export default function Login() {
+import Header from '../../Common/Header/Header'
+
+
+  const Login = () => {
+
   const classes = useStyles();
   const [error, setError] = useState(false);
   const [errMessage, setErrMessage] = useState(null);
@@ -72,7 +77,12 @@ export default function Login() {
   };
 
   return (
+
     <Container className={classes.Container}>
+    <Grid container direction="column" className={classes.root}>
+
+              <Header pageName="LogIn" />
+
       {accountStatus !== "Exist" ? (
         <form
           onSubmit={handleSubmit}
@@ -100,7 +110,7 @@ export default function Login() {
           <Box className={classes.message}>
             {errMessage ? (
               <Link to='/signup' className='text-link'>
-             <p > .مستخدم جديد؟ أنشئ حسابك.</p>
+             <p > .New user? Create your account Here.</p>
 
             </Link>
             ) : null}
@@ -135,7 +145,9 @@ export default function Login() {
             error={error}
           />
         </div>
-      )}
-    </Container>
+      )} </Grid>
+    </Container>             
+
   );
 }
+export default Login;

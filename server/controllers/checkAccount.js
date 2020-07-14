@@ -5,7 +5,7 @@ const checkAccount = (req, res) => {
 
   if ( !email || email.trim().length === 0) {
     return res.status(400).json({
-      message: ' !! ' + 'هذا الحقل مطلوب',
+      message: 'This Field is Required !!',
       status: 400
     })
   }
@@ -14,7 +14,7 @@ const checkAccount = (req, res) => {
     .then((result) => {
 
       if (result.rowCount === 0) {
-        res.status(400).json({ status: 'notExist', message: 'لا يمكننا العثور على حساب يحمل عنوان البريد الالكتروني هذا ' })
+        res.status(400).json({ status: 'notExist', message: 'We cannot find an account with this email address !! ' })
       } else
       {
         res
