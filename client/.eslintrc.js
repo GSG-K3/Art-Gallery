@@ -15,6 +15,12 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module'
   },
-  plugins: ['react'],
-  rules: { 'react/display-name': 'off' }
+  plugins: ['react','prettier'],
+  rules: { 'react/display-name': 'off',
+  'prettier/prettier': ['error'],
+},
+  extends: [ "plugin:prettier/recommended",
+  "prettier/flowtype",
+  "prettier/react",
+  "prettier/standard"],
 }
