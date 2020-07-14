@@ -24,7 +24,8 @@ An application that allows the artists to market their art work , and allows the
 - As a client, I can see the art picture, artwork name,description, dimensions, categories, prince and the artist name .
 
 ## Database Schema:
-![art-gallery](https://user-images.githubusercontent.com/56638980/86110464-44e35580-bace-11ea-8dd7-f177b03dc0fc.png)
+
+![DBMS ER diagram (UML notation) (1)](https://user-images.githubusercontent.com/57558867/87059259-c3986b00-c211-11ea-9e8e-4dc94399a9e7.png)
 
 ## How to run the project?
 

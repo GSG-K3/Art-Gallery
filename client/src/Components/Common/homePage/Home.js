@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { Grid, Box } from "@material-ui/core";
-import ArtCard from "../artCard/ArtCard";
+import ArtCard from "../ArtCard/ArtCard";
 
 function Home() {
   const data = [

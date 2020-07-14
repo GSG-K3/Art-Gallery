@@ -41,6 +41,7 @@ console.log('req.body',req.body.values);
     }
     )
     .catch((err) => {
+      console.log(err)
       return res.status(501).clearCookie('token').json({
         message: 'internal error , login faild',
         status: 501
