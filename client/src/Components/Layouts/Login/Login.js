@@ -12,7 +12,7 @@ import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import useStyles from "../../../Theme/FormsStyles";
 import axios from "axios";
 import PasswordForm from './PasswordForm'
-import Header from '../../Common/Header/Header'
+import SecondHeader from '../../Common/SecondHeder/SecondHeader'
 
 
   const Login = () => {
@@ -77,11 +77,11 @@ import Header from '../../Common/Header/Header'
   };
 
   return (
+    <Grid container direction="column"  className={classes.root}>
+        <SecondHeader pageName="Access" HideIcon='true' />
 
     <Container className={classes.Container}>
-    <Grid container direction="column" className={classes.root}>
 
-              <Header pageName="LogIn" />
 
       {accountStatus !== "Exist" ? (
         <form
@@ -145,9 +145,9 @@ import Header from '../../Common/Header/Header'
             error={error}
           />
         </div>
-      )} </Grid>
+      )} 
     </Container>             
-
+</Grid>
   );
 }
 export default Login;

@@ -4,7 +4,7 @@ import { Container,Grid } from "@material-ui/core";
 import useStyles from "../../../Theme/FormsStyles";
 import axios from "axios";
 import SignUpForm from "./SignUpForm";
-import Header from '../../Common/Header/Header'
+import SecondHeader from '../../Common/SecondHeder/SecondHeader'
 
 const Signup = () => {
   const classes = useStyles();
@@ -54,7 +54,7 @@ const Signup = () => {
     <Container className={classes.Container}>
         <Grid container direction="column" className={classes.root}>
 
-<Header pageName="Signup" />
+        <SecondHeader pageName="SignUp" HideIcon='true' />
 
       <SignUpForm
         handleNext={handleNext}
