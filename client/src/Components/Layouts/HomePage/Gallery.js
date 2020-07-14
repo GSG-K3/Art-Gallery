@@ -8,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import green from '@material-ui/core/colors/green';
 
 
-function Gallery() {
+const Gallery = ()=> {
   const classes = useStyles();
   const [artwork, setArtwork] = useState(null);
   useEffect(() => {
@@ -42,8 +42,8 @@ function Gallery() {
               return (
                 <Grid item xs={6}>
                   <ArtCard
-                    title={art.name}
-                    category={art.caregory}
+                    title={art.titel}
+                    category={art.category}
                     imageurl={art.photo_url}
                     cardKey={art.id}
                   />

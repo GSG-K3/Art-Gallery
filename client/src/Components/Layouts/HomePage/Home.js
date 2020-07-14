@@ -8,7 +8,7 @@ import Gallery from './Gallery'
 import useStyles from './style';
 import Navbar from '../../Common/Navbar/Navbar';
 
-function Home() {
+const Home = ()=> {
   const classes = useStyles();
   
   return (
