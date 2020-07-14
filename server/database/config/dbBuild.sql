@@ -17,13 +17,13 @@ CREATE TABLE users
 CREATE TABLE artwork
 (
  id SERIAL PRIMARY KEY NOT NULL,
- name VARCHAR(20) NOT NULL,
+ titel VARCHAR(20) NOT NULL,
  artist_id INT,
  FOREIGN KEY (artist_id) REFERENCES users(id),
  photo_url VARCHAR NOT NULL,
  description TEXT,
  price INT NOT NULL,
- caregory VARCHAR(50) NOT NULL,
+ category VARCHAR(50) NOT NULL,
  size VARCHAR(20) NOT NULL,
  sold BOOLEAN,
  type VARCHAR NOT NULL

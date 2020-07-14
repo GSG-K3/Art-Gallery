@@ -7,6 +7,7 @@ const signup = require('./signup')
 const checkEmail = require('../middlewares/checkEmail')
 const recentArt = require('./recentArt')
 const checkAccount = require('./checkAccount')
+const getArtAndUser = require('./getArtAndUser')
 
 router.get('/api/get-art', getArt)
 router.post('/api/signup', checkEmail, signup)
@@ -14,5 +15,6 @@ router.post('/api/login', login)
 router.post('/api/add-art', addArt)
 router.post('/api/checkAccount', checkAccount)
 router.get('/api/recent', recentArt)
+router.get('/api/art-user/:id', getArtAndUser)
 
 module.exports = router
