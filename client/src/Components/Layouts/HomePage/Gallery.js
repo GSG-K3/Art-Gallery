@@ -20,6 +20,7 @@ function Gallery() {
       .then((result) => setArtwork(result.data))
       .catch((err) => console.log(err));
   }, [artwork]);
+  
   return (
     <div>
       <div className={classes.galleryDiv}>
