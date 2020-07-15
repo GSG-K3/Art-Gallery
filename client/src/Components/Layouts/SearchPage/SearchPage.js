@@ -57,7 +57,6 @@ const SearchPage = () => {
             inputProps={{ 'aria-label': 'search' }}
             onChange={(e) => {
               setValue(e.target.value)
-              setHideCancel(false)
             }}
           />
         </div>
