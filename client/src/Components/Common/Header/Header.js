@@ -4,6 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
+import TuneIcon from '@material-ui/icons/Tune';
 
 const Header = (props) => {
   const classes = useStyles()
@@ -14,6 +15,17 @@ const Header = (props) => {
         <Typography noWrap className={classes.title}>
           {pageName}
         </Typography>
+        { pageName==='Search'?
+         <IconButton
+         edge="start"
+         className={classes.filterButton}
+         color="#DADADA"
+         aria-label="filter"
+       >
+         <TuneIcon />
+       </IconButton>
+       : null}
+
         <IconButton
           edge="start"
           className={classes.shopButton}
