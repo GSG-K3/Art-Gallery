@@ -1,16 +1,13 @@
 import React from 'react';
-import Home from './Components/Layouts/HomePage/Home'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AddArt from './Components/Layouts/addArt/addArt'
-import ArtInfo from './Components/Layouts/ArtInfo/ArtInfo'
+
 
 const App = ()=> {
   return (
     <Router>
       <Switch>
-        <Route exact path='/' component={Home} />
         <Route path = '/addart' component = {AddArt}/>
-        <Route exact path='/art/:id' component={ArtInfo} />
       </Switch>
     </Router>  
   );

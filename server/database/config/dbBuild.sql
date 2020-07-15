@@ -17,7 +17,7 @@ CREATE TABLE users
 CREATE TABLE artwork
 (
  id SERIAL PRIMARY KEY NOT NULL,
- titel VARCHAR(20) NOT NULL,
+ name VARCHAR(20) NOT NULL,
  artist_id INT,
  FOREIGN KEY (artist_id) REFERENCES users(id),
  photo_url VARCHAR NOT NULL,
