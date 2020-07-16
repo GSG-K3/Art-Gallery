@@ -30,13 +30,16 @@ const SearchPage = () => {
     }
     return art.filter(
       (artwork) =>
-        artwork.titel
+        artwork.title
           .toLowerCase()
           .includes(searchValue.toLowerCase()) ||
         artwork.category
           .toLowerCase()
           .includes(searchValue.toLowerCase()),
     )
+  }
+  const handleChange=(e) => {
+    setValue(e.target.value)
   }
 
   return (
@@ -55,9 +58,7 @@ const SearchPage = () => {
               input: classes.inputInput,
             }}
             inputProps={{ 'aria-label': 'search' }}
-            onChange={(e) => {
-              setValue(e.target.value)
-            }}
+            onChange={handleChange}
           />
         </div>
       </Grid>
@@ -75,9 +76,9 @@ const SearchPage = () => {
                 return (
                   <Grid item xs={6}>
                     <ArtCard
-                      title={artwork.titel}
+                      title={artwork.title}
                       category={artwork.category}
-                      imageurl={artwork.photo_url}
+                      imageUrl={artwork.photo_url}
                       cardKey={artwork.id}
                     />
                   </Grid>

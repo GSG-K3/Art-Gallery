@@ -66,7 +66,7 @@ const SwipeableTextMobileStepper = () => {
                       className={classes.header}
                     >
                       <Typography className={classes.text}>
-                        {recentArt[activeStep].titel}
+                        {recentArt[activeStep].title}
                       </Typography>
                       <Link
                         to={{

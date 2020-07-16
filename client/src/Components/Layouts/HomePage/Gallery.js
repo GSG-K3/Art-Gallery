@@ -50,9 +50,9 @@ const Gallery = () => {
             return (
               <Grid item xs={6}>
                 <ArtCard
-                  title={art.titel}
+                  title={art.title}
                   category={art.category}
-                  imageurl={art.photo_url}
+                  imageUrl={art.photo_url}
                   cardKey={art.id}
                 />
               </Grid>

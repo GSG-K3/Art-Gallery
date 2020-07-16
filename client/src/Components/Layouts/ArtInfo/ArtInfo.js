@@ -35,13 +35,13 @@ const ArtInfo = () => {
           <div className={classes.root}>
             <img
               src={artUser[0].photo_url}
-              alt={artUser[0].titel}
+              alt={artUser[0].title}
               className={classes.img}
             />
           </div>
           <div>
             <Typography variant="h5" align="center">
-              {artUser[0].titel}
+              {artUser[0].title}
             </Typography>
             <Typography variant="h6" align="center">
               {artUser[0].name} (
