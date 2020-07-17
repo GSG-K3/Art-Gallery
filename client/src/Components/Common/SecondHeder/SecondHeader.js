@@ -7,7 +7,7 @@ import useStyle from './style'
 import { useHistory } from 'react-router-dom'
 
 const SecondHeader = (props) => {
-  const { pageName } = props
+  const { pageName,HideIcon } = props
   const classes = useStyle()
   const history = useHistory()
 
@@ -22,7 +22,8 @@ const SecondHeader = (props) => {
           {pageName}
         </Typography>
       </div>
-
+      {HideIcon ? null
+      :
       <IconButton
         edge="start"
         aria-label="shop"
@@ -30,6 +31,7 @@ const SecondHeader = (props) => {
       >
         <ShoppingCartIcon />
       </IconButton>
+      }
     </div>
   )
 }

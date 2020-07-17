@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import ArtInfo from './Components/Layouts/ArtInfo/ArtInfo'
 import SearchPage from './Components/Layouts/SearchPage/SearchPage'
+import ShoppingCart from './Components/Layouts/ShoppingCart/ShoppingCart'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/art/:id" component={ArtInfo} />
         <Route exact path="/search" component={SearchPage} />
+        <Route exact path='/cart' component={ShoppingCart} />
       </Switch>
     </Router>
   )

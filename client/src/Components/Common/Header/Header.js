@@ -29,6 +29,7 @@ const Header = (props) => {
           edge="start"
           className={classes.shopButton}
           aria-label="shop"
+          href='/cart'
         >
           <ShoppingCartIcon />
         </IconButton>
