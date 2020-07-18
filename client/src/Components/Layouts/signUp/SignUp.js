@@ -83,7 +83,6 @@ const Signup = () => {
         {next ? (
           <Link to='/login' className='text-link'>
             <p className={classes.text}>
-              {' '}
               .Already have an account? Log in Now.
             </p>
           </Link>
