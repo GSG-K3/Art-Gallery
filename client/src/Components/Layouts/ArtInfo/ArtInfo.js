@@ -11,22 +11,36 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import green from '@material-ui/core/colors/green'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import SecondHeader from '../../Common/SecondHeder/SecondHeader'
+import swal from 'sweetalert'
 
 const ArtInfo = () => {
   const classes = useStyles()
   const [artUser, setArtUser] = useState(null)
   const [errorFound, setError] = useState(null)
 
+  const artId = window.location.pathname.slice(5, 10)
   useEffect(() => {
-    const id = window.location.pathname.slice(5, 10)
     if (artUser) {
       return
     }
     axios
-      .get(`/api/art-user/${id}`)
+      .get(`/api/art-user/${artId}`)
       .then((result) => setArtUser(result.data))
       .catch((err) => console.log(err))
   }, [artUser])
+
+  const addToCart=(artId)=>{
+    const userId=5
+    axios.post('/api/add-cart',{
+      user : userId,
+      artwork : artId
+    })
+    .then(result => 
+        swal('رائع !!', 'يمكنك الذهاب الى سلة مشترياتك للتحقق', 'success')
+    )
+    .catch(err => swal('حدث خطأ اثناء العمليه .. يرجى المحاوله مجددا'),'warning')
+
+  }
   return (
     <Grid container className={classes.root} direction="column">
       <SecondHeader pageName="Details" />
@@ -89,7 +103,8 @@ const ArtInfo = () => {
               color="primary"
               className={classes.button}
               startIcon={<AddShoppingCartIcon />}
-            >
+              onClick={()=> addToCart(artId)}
+              >
               أضف الى السله
             </Button>
           </BottomNavigation>

@@ -51,6 +51,23 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
       paddingBottom: theme.spacing(1),
     },
+    sendButton :{
+      width:'100%',
+      borderRadius:5,
+      margin:theme.spacing(1)
+    },
+    sendDiv:{
+      maxWidth:400,
+      height: 68,
+      position:'fixed',
+      bottom:0,
+      left:0,
+      right:0,
+      borderTop:'1px #DADADA solid'
+    },
+    statment:{
+      margin:theme.spacing(2)
+    }
   }))
 
   export default useStyles

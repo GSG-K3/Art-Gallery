@@ -14,15 +14,20 @@ import DeleteIcon from '@material-ui/icons/Delete'
 const ShoppingCart = () =>{
     const classes = useStyles()
     const [cartList,setCartList]=useState(null)
+    const clientId=5
 
     useEffect(
         ()=>{
-            const clientId=5
             if(cartList){
                 return 
             }
             axios.get(`/api/cart/${clientId}`)
-                .then(result => setCartList(result.data))
+                .then(result => {
+                    if(result.data.length==0){
+                        return 
+                    }
+                    setCartList(result.data)
+                })
                 .catch(err => err)
         },[cartList]
     )
@@ -33,19 +38,32 @@ const ShoppingCart = () =>{
         } 
         return counte
     }
+    const deleteItem = (itemId)=>{
+
+        axios.delete('/api/cart/delete',
+       { data: {
+            artwork: itemId,
+            user : clientId
+        }})
+        window.location.reload()
+    }
     return (
         <div className={classes.root} >
             <SecondHeader pageName='Shopping Cart' HideIcon={true} />
-            {cartList  ?
+            {cartList ?
             <div>
-            <Typography variant="body1" align='right' >{priceCounter()} المجموع (القطع {cartList.length}):$</Typography>
+            <Typography variant="body1" 
+                align='right'
+                className={classes.statment} >
+                    {priceCounter()} المجموع (القطع {cartList.length})
+                    </Typography>
             <div>
                 {cartList.map(item =>{
                   return  <Card className={classes.rootCard} key={item.id} >
                    
                     <div className={classes.details}>
-                    <div className={classes.controls} >
-                        <IconButton aria-label="delete">
+                    <div className={classes.controls}  >
+                        <IconButton aria-label="delete" onClick={()=> deleteItem(item.id)} >
                          <DeleteIcon />
                         </IconButton>
                       </div>
@@ -67,6 +85,17 @@ const ShoppingCart = () =>{
                   </Card>
                 })}
             </div>
+              <div>
+               <BottomNavigation className={classes.sendDiv}>
+               <Button
+                 variant="contained"
+                 color="primary"
+                 className={classes.sendButton}
+               >
+                 ارسال الطلب
+               </Button>
+             </BottomNavigation>
+             </div>
             </div>
            
           :  
