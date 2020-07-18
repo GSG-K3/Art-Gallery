@@ -4,7 +4,7 @@ const signUpValidation = require('../helper/signupValidation')
 const addUser = require('../database/queries/addUser')
 
 const signup = async (req, res) => {
-  const data = req.body
+  const data = req.body.values
   const { error } = signUpValidation(data)
   if (!error) {
     const secretPassword = data.password
