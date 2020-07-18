@@ -1,33 +1,97 @@
-import React from 'react'
+import React ,{useEffect,useState} from 'react'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
 import SecondHeader from '../../Common/SecondHeder/SecondHeader'
 import useStyles from './style'
+import axios from 'axios'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import CardMedia from '@material-ui/core/CardMedia'
+import IconButton from '@material-ui/core/IconButton'
+import DeleteIcon from '@material-ui/icons/Delete'
 
 const ShoppingCart = () =>{
     const classes = useStyles()
+    const [cartList,setCartList]=useState(null)
+
+    useEffect(
+        ()=>{
+            const clientId=5
+            if(cartList){
+                return 
+            }
+            axios.get(`/api/cart/${clientId}`)
+                .then(result => setCartList(result.data))
+                .catch(err => err)
+        },[cartList]
+    )
+    const priceCounter=()=>{
+        let counte =0
+        for(let i=0;i< cartList.length;i++){
+            return counte= counte+cartList[i].price
+        } 
+        return counte
+    }
     return (
         <div className={classes.root} >
             <SecondHeader pageName='Shopping Cart' HideIcon={true} />
-            <div className={classes.roundDiv} >
+            {cartList  ?
+            <div>
+            <Typography variant="body1" align='right' >{priceCounter()} المجموع (القطع {cartList.length}):$</Typography>
+            <div>
+                {cartList.map(item =>{
+                  return  <Card className={classes.rootCard} key={item.id} >
+                   
+                    <div className={classes.details}>
+                    <div className={classes.controls} >
+                        <IconButton aria-label="delete">
+                         <DeleteIcon />
+                        </IconButton>
+                      </div>
+                      <CardContent className={classes.content}>
+                        <Typography component="h6" variant="h6">
+                          {item.title}
+                        </Typography>
+                        <Typography variant="subtitle1" color="textSecondary">
+                          {item.price}
+                        </Typography>
+                      </CardContent>
+                     
+                    </div>
+                    <CardMedia
+                      className={classes.cover}
+                      image={item.photo_url}
+                      title={item.title}
+                    />
+                  </Card>
+                })}
             </div>
-            <BottomNavigation className={classes.buttonDiv}>
-            <Typography variant="h6" align="center">
-              انشئ متحفك الخاص
-            </Typography>
-            <Typography variant="body1" align="center">
-              اجمع قطعك الفنيه المفضله لتشتريها لاحقا
-            </Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              href='/'
-            >
-              تصفح الاعمال الفنية
-            </Button>
-          </BottomNavigation>
+            </div>
+           
+          :  
+               <div>
+               <div className={classes.roundDiv} >
+               </div>
+               <BottomNavigation className={classes.buttonDiv}>
+               <Typography variant="h6" align="center">
+                 انشئ متحفك الخاص
+               </Typography>
+               <Typography variant="body1" align="center">
+                 اجمع قطعك الفنيه المفضله لتشتريها لاحقا
+               </Typography>
+               <Button
+                 variant="contained"
+                 color="primary"
+                 className={classes.button}
+                 href='/'
+               >
+                 تصفح الاعمال الفنية
+               </Button>
+             </BottomNavigation>
+             </div>
+            
+        }
         </div>
     )
 }

@@ -23,7 +23,34 @@ const useStyles = makeStyles((theme) => ({
         display:'flex',
         flexDirection:'column',
         margin:theme.spacing(10),
-    }
+    },
+    rootCard: {
+      display: 'flex',
+      justifyContent:'flex-end',
+      marginBottom:10,
+      height:100,
+    },
+    details: {
+      display: 'flex',
+      flexGrow:1,
+      flexDirection: 'row',
+      justifyContent:'space-between',
+      maxWidth:300,
+      alignContent:'center',
+    },
+    content: {
+      textAlign:'right',
+    },
+    cover: {
+      width: 64,
+      height:64,
+      margin:theme.spacing(2)
+    },
+    controls: {
+      display: 'flex',
+      alignItems: 'center',
+      paddingBottom: theme.spacing(1),
+    },
   }))
 
   export default useStyles
