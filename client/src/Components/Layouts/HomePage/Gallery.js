@@ -20,8 +20,8 @@ const Gallery = () => {
       .catch((err) => console.log(err))
   }, [artwork])
   return (
-    <div>
-      <div className={classes.galleryDiv}>
+    <div className={classes.galleryDiv} >
+      <div className={classes.galleryTextDiv}>
         <Typography
           variant="h6"
           align="right"

@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     maxWidth: 400,
+    flexGrow:1,
+  },
+  detailDiv:{
+    marginBottom:70,
   },
   img: {
     maxWidth: 400,
@@ -27,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingLeft:theme.spacing(2),
-    paddingRight:theme.spacing(2),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
     maxWidth: 400,
     height: 60,
     borderTop: '0.5px solid ',
