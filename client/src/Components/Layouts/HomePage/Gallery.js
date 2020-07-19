@@ -1,50 +1,41 @@
-import React, { useEffect, useState } from 'react'
-import Typography from '@material-ui/core/Typography'
-import useStyles from './style'
-import ArtCard from '../../Common/ArtCard/ArtCard'
-import axios from 'axios'
-import { Grid } from '@material-ui/core'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import green from '@material-ui/core/colors/green'
+import React, { useEffect, useState } from 'react';
+import Typography from '@material-ui/core/Typography';
+import useStyles from './style';
+import ArtCard from '../../Common/ArtCard/ArtCard';
+import axios from 'axios';
+import { Grid } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import green from '@material-ui/core/colors/green';
 
 const Gallery = () => {
-  const classes = useStyles()
-  const [artwork, setArtwork] = useState(null)
+  const classes = useStyles();
+  const [artwork, setArtwork] = useState(null);
   useEffect(() => {
     if (artwork) {
-      return
+      return;
     }
     axios
       .get('/api/get-art')
       .then((result) => setArtwork(result.data))
-      .catch((err) => console.log(err))
-  }, [artwork])
+      .catch((err) => console.log(err));
+  }, [artwork]);
   return (
-    <div className={classes.galleryDiv} >
-      <div className={classes.galleryTextDiv}>
-        <Typography
-          variant="h6"
-          align="right"
-          className={classes.text}
-        >
+    <div>
+      <div className={classes.galleryDiv}>
+        <Typography variant='h6' align='right' className={classes.text}>
           المعرض الفني
         </Typography>
         <Typography
-          variant="body2"
-          align="right"
+          variant='body2'
+          align='right'
           className={classes.text}
-          color="textSecondary"
-          component="p"
+          color='textSecondary'
+          component='p'
         >
           اخر الاعمال الفنية المضافه لمعرضنا
         </Typography>
       </div>
-      <Grid
-        container
-        direction="row"
-        spacing={2}
-        justify="space-around"
-      >
+      <Grid container direction='row' spacing={2} justify='space-around'>
         {artwork ? (
           artwork.map((art) => {
             return (
@@ -56,7 +47,7 @@ const Gallery = () => {
                   cardKey={art.id}
                 />
               </Grid>
-            )
+            );
           })
         ) : (
           <div
@@ -68,7 +59,7 @@ const Gallery = () => {
         )}
       </Grid>
     </div>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;
