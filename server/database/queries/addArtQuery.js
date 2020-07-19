@@ -1,9 +1,10 @@
 const dbConnection = require('../config/dbConnection')
 
-const artPost = (user_id, data) => {
+const artPost = (data) => {
+  console.log(data, 'queryyyyyyyyyyyyyyyyyy')
   const sql = {
-    text: 'INSERT INTO artwork (titel ,artist_id ,photo_url ,description ,price ,category ,size ,type) VALUES ($1,$2,$3,$4,$5,$6,$7,$8 ,$9)',
-    values: [data.name, user_id, data.id, data.photo, data.description, data.price, data.category, data.size, data.type]
+    text: 'INSERT INTO artwork (title ,artist_id ,photo_url ,description ,price ,category ,size ,type,sold) VALUES ($1,$2,$3,$4,$5,$6,$7,$8 ,$9 )',
+    values: [data.name, data.user_id, data.photo, data.description, data.price, data.category, data.size, data.type, data.sold]
   }
   return dbConnection.query(sql)
 }
