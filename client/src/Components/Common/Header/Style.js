@@ -35,5 +35,11 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 10,
     fontWeight: 'bold',
   },
+  filterButton:{
+    color: '#DADADA',
+    position: 'absolute',
+    top: 6,
+    right: 50,
+  },
 }))
 export default useStyles
