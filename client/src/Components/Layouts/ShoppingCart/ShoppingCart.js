@@ -23,7 +23,7 @@ const ShoppingCart = () =>{
             }
             axios.get(`/api/cart/${clientId}`)
                 .then(result => {
-                    if(result.data.length==0){
+                    if(result.data.length===0){
                         return 
                     }
                     setCartList(result.data)
@@ -32,11 +32,11 @@ const ShoppingCart = () =>{
         },[cartList]
     )
     const priceCounter=()=>{
-        let counte =0
+        let counter =0
         for(let i=0;i< cartList.length;i++){
-            return counte= counte+cartList[i].price
+             counter= counter+cartList[i].price
         } 
-        return counte
+        return counter
     }
     const deleteItem = (itemId)=>{
 

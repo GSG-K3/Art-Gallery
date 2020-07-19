@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 400,
+    maxWidth: 410,
     position: 'fixed',
     bottom: 0,
     left: 0,
