@@ -22,8 +22,8 @@ const SecondHeader = (props) => {
           {pageName}
         </Typography>
       </div>
-      {HideIcon ? null
-      :
+{HideIcon ? null :
+
       <IconButton
         edge="start"
         aria-label="shop"
@@ -32,7 +32,9 @@ const SecondHeader = (props) => {
       >
         <ShoppingCartIcon />
       </IconButton>
-      }
+
+
+}
     </div>
   )
 }
