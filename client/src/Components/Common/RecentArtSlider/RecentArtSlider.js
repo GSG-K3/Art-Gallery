@@ -1,28 +1,28 @@
-import React, { useEffect } from 'react'
-import { useTheme } from '@material-ui/core/styles'
-import Paper from '@material-ui/core/Paper'
-import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft'
-import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'
-import SwipeableViews from 'react-swipeable-views'
-import { autoPlay } from 'react-swipeable-views-utils'
-import { Grid } from '@material-ui/core'
-import axios from 'axios'
-import useStyles from './sliderStyle'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import green from '@material-ui/core/colors/green'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { useTheme } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+import { Grid } from '@material-ui/core';
+import axios from 'axios';
+import useStyles from './sliderStyle';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import green from '@material-ui/core/colors/green';
+import { Link } from 'react-router-dom';
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const SwipeableTextMobileStepper = () => {
-  const classes = useStyles()
-  const theme = useTheme()
-  const [activeStep, setActiveStep] = React.useState(0)
-  const [recentArt, setRecentArt] = React.useState(null)
-  const [error, setError] = React.useState(null)
-  const MAX_STEPS = 4
+  const classes = useStyles();
+  const theme = useTheme();
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [recentArt, setRecentArt] = React.useState(null);
+  const [error, setError] = React.useState(null);
+  const MAX_STEPS = 4;
 
   useEffect(() => {
     if (recentArt) {
@@ -30,26 +30,21 @@ const SwipeableTextMobileStepper = () => {
       axios
         .get('/api/recent')
         .then((res) => setRecentArt(res.data))
-        .catch((err) => setError(err))
+        .catch((err) => setError(err));
     }
-  }, [recentArt])
+  }, [recentArt]);
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1)
-  }
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
 
   const handleStepChange = (step) => {
-    setActiveStep(step)
-  }
+    setActiveStep(step);
+  };
 
   return (
     <div className={classes.root}>
       {recentArt ? (
-        <Grid
-          container
-          spacing={3}
-          justify="center"
-          alignItems="center"
-        >
+        <Grid container spacing={3} justify='center' alignItems='center'>
           <Grid item xs={12}>
             <AutoPlaySwipeableViews
               axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -60,11 +55,7 @@ const SwipeableTextMobileStepper = () => {
               {recentArt.map((step, index) => (
                 <div key={step.name}>
                   {Math.abs(activeStep - index) <= 2 ? (
-                    <Paper
-                      square
-                      elevation={0}
-                      className={classes.header}
-                    >
+                    <Paper square elevation={0} className={classes.header}>
                       <Typography className={classes.text}>
                         {recentArt[activeStep].title}
                       </Typography>
@@ -80,7 +71,7 @@ const SwipeableTextMobileStepper = () => {
                         />
                       </Link>
                       <Button
-                        size="small"
+                        size='small'
                         onClick={handleNext}
                         disabled={activeStep === MAX_STEPS - 1}
                         className={classes.button}
@@ -88,7 +79,7 @@ const SwipeableTextMobileStepper = () => {
                         {theme.direction === 'rtl' ? (
                           <KeyboardArrowLeft />
                         ) : (
-                          <KeyboardArrowRight color="secondary" />
+                          <KeyboardArrowRight color='secondary' />
                         )}
                       </Button>
                     </Paper>
@@ -107,7 +98,7 @@ const SwipeableTextMobileStepper = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SwipeableTextMobileStepper
+export default SwipeableTextMobileStepper;
