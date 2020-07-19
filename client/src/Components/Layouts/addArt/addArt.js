@@ -20,11 +20,13 @@ const AddArt = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const [artName, setArtName] = useState('');
   const [description, setDesciption] = useState('');
-  const [customization, setCustomization] = useState(false);
+  const [customization, setCustomization] = useState('sell');
   const [catigory, setCatigory] = useState('');
   const [formData, setFormData] = useState({});
-  const [price, setPrice] = useState('');
+  const [price, setPrice] = useState(0);
   const [size, setSize] = useState('');
+  const [sold, setSold] = useState('false');
+
   const getUrl = (url) => {
     console.log(url, 'url from addArt');
     setImageUrl(url);
@@ -41,7 +43,7 @@ const AddArt = () => {
   };
 
   const handleCustomization = (e) => {
-    setCustomization(true);
+    setCustomization('customize');
   };
   const handlePriceChange = (e) => {
     setPrice(e.target.value);
@@ -55,13 +57,15 @@ const AddArt = () => {
     alert('preventDefault');
     e.preventDefault();
     const data = {
-      url: imageUrl,
-      artName: artName,
+      photo: imageUrl,
+      name: artName,
       description: description,
-      customization: customization,
-      catigory: catigory,
+      type: customization,
+      category: catigory,
       price: price,
-      size : size 
+      size : size ,
+      sold : sold,
+      user_id : 1
     };
 
     setFormData(data);
