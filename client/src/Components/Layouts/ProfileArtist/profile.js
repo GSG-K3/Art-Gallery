@@ -17,10 +17,10 @@ function Profile() {
       return;
     }
     axios
-      .get('/api/artist/1')
+      .get('/api/artist/4')
       .then((result) =>  setArtistValue(result.data))
       .then ((result) =>  result)
-      .catch((err) => rr);
+      .catch((err) => err);
   }, [artistValue]);
   
   
