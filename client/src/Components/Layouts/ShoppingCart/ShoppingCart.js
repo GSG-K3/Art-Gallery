@@ -10,7 +10,6 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import IconButton from '@material-ui/core/IconButton'
 import DeleteIcon from '@material-ui/icons/Delete'
-import Cookies from 'js-cookie';
 import { useHistory } from 'react-router-dom'
 
 const ShoppingCart = () =>{
