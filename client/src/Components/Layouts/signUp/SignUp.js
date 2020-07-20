@@ -5,7 +5,7 @@ import useStyles from '../../../Theme/FormsStyles';
 import axios from 'axios';
 import SignUpForm from './SignUpForm';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 const Signup = () => {
   const classes = useStyles();

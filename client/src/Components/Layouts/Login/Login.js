@@ -7,7 +7,7 @@ import useStyles from '../../../Theme/FormsStyles';
 import axios from 'axios';
 import PasswordForm from './PasswordForm';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const history = useHistory()
