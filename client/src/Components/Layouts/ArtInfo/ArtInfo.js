@@ -66,6 +66,7 @@ const ArtInfo = () => {
               {artUser[0].rate})
             </Typography>
           </div>
+          <div className={classes.detailDiv}>
           <div
             className={classes.divs}
             style={{
@@ -96,6 +97,7 @@ const ArtInfo = () => {
             <Typography variant='h6' align='right'>
               الفئة
             </Typography>
+          </div>
           </div>
           <BottomNavigation className={classes.buttonDiv}>
             <Typography variant='h6' align='right'>

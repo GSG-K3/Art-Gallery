@@ -98,7 +98,7 @@ const SwipeableTextMobileStepper = () => {
         </div>
       )}
     </div>
-  )
+  );
 };
 
 export default SwipeableTextMobileStepper;

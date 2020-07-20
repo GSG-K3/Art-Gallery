@@ -85,7 +85,7 @@ const SearchPage = () => {
       </div>
       <Navbar />
     </div>
-  )
-}
+  );
+};
 
-export default SearchPage
+export default SearchPage;
