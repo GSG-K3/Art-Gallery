@@ -12,7 +12,7 @@ import SwipeableViews from 'react-swipeable-views';
 import { Grid } from '@material-ui/core';
 import ArtCard from '../../Common/ArtCard/ArtCard';
 import AllArt from './allArt'
-
+import  addArtImage from './addArt.png'
 
 
 function TabPanel(props) {
@@ -65,13 +65,13 @@ const AllTab = (props) => {
         }
         axios
           .get('/api/all-art-artist/1')
-          .then((result) =>  setArtwork(result.data))
-          .then ((result) =>   console.log(result))
+          .then((result) => {if(result.data.rows > 0 ){setArtwork(result.data)}})
           .catch((err) => console.log(err));
       }, [artwork]);
 
         return(
             <div>
+               {artwork ?
                 <div className={classes.Paper}>
                 <Paper square>
                 
@@ -118,6 +118,18 @@ const AllTab = (props) => {
                 </TabPanel>
             </SwipeableViews>
             </div>
+
+                :
+                <div className={classes.imageDiv}>
+                  
+                  <img className={classes.addArtImage}   src={addArtImage} alt='addArtImage' style={{ marginLeft:40 , backgroundColor:'#ffff'}} />
+                
+                </div>
+
+
+                }  
+
+
     </div>
 
 )
