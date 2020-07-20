@@ -7,6 +7,7 @@ import Login from './Components/Layouts/Login/Login';
 import Signup from './Components/Layouts/signUp/SignUp';
 import Customize from './Components/Layouts/Customize/customize';
 import UpladImage from './Components/Layouts/Customize/UploadImage';
+import ShoppingCart from './Components/Layouts/ShoppingCart/ShoppingCart';
 
 const App = () => {
   return (
