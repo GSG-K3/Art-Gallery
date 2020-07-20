@@ -1,25 +1,26 @@
-import React ,{useEffect,useState} from 'react'
-import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-import BottomNavigation from '@material-ui/core/BottomNavigation'
-import SecondHeader from '../../Common/SecondHeder/SecondHeader'
-import useStyles from './style'
-import axios from 'axios'
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import CardMedia from '@material-ui/core/CardMedia'
-import IconButton from '@material-ui/core/IconButton'
-import DeleteIcon from '@material-ui/icons/Delete'
-import { useHistory } from 'react-router-dom'
+import React ,{useEffect,useState} from 'react';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import SecondHeader from '../../Common/SecondHeder/SecondHeader';
+import useStyles from './style';
+import axios from 'axios';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import { useHistory } from 'react-router-dom';
+import swal from 'sweetalert';
 
-const ShoppingCart = () =>{
+const ShoppingCart = () => {
     const classes = useStyles()
     const [cartList,setCartList]=useState(null)
     const [clientId,setId]=useState(null)
     const history = useHistory()
 
     useEffect(
-      ()=>{      
+      () => {      
         axios.get('/api/user-id')
           .then(result=> {
             if(!result.data.success){
@@ -35,10 +36,16 @@ const ShoppingCart = () =>{
                   }
                   setCartList(result.data)
               })
-              .catch(err => err)}
+              .catch(err => swal({
+                title: 'حدث خطأ في الخادم',
+                icon: 'warning',
+              }))}
             }
           })
-          .catch(err=>err)
+          .catch(err=>swal({
+            title: 'حدث خطأ في الخادم',
+            icon: 'warning',
+          }))
         
         
         
@@ -58,7 +65,7 @@ const ShoppingCart = () =>{
             artwork: itemId,
             user : clientId
         }})
-        window.location.reload()
+        history.go('/cart')
     }
     return (
         <div className={classes.root} >

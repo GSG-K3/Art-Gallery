@@ -1,5 +1,5 @@
 BEGIN;
-DROP TABLE IF EXISTS  users,artwork,cart 
+DROP TABLE IF EXISTS  users, artwork, cart 
   CASCADE;
 
 CREATE TABLE users
@@ -17,13 +17,13 @@ CREATE TABLE users
 CREATE TABLE artwork
 (
  id SERIAL PRIMARY KEY NOT NULL,
- title VARCHAR(20) NOT NULL,
+ title VARCHAR(50) NOT NULL,
  artist_id INT,
  FOREIGN KEY (artist_id) REFERENCES users(id),
  photo_url VARCHAR NOT NULL,
  description TEXT,
  price INT NOT NULL,
- category VARCHAR(50) NOT NULL,
+ category VARCHAR NOT NULL,
  size VARCHAR(20) NOT NULL,
  sold BOOLEAN,
  type VARCHAR NOT NULL
@@ -32,9 +32,9 @@ CREATE TABLE artwork
 CREATE TABLE cart 
 (
   id SERIAL PRIMARY KEY NOT NULL,
-  artwork_id INT,
+  artwork_id INT NOT NULL,
   FOREIGN KEY (artwork_id) REFERENCES artwork(id),
-  client_id INT,
+  client_id INT NOT NULL,
   FOREIGN KEY (client_id) REFERENCES users(id)
 );
 
