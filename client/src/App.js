@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ArtInfo from './Components/Layouts/ArtInfo/ArtInfo';
@@ -20,6 +19,7 @@ const App = () => {
         <Route exact path='/customize' component={Customize} />
         <Route exact path='/livePreview' component={UpladImage} />
         <Route exact path='/search' component={SearchPage} />
+        <Route exact path='/cart' component={ShoppingCart} />
       </Switch>
     </Router>
   );

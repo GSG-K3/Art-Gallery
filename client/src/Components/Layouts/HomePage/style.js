@@ -17,7 +17,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     paddingLeft: 20,
   },
-  galleryDiv: {
+  galleryDiv:{
+    maxWidth:400,
+    flexGrow:1,
+    marginBottom:80,
+  },
+  galleryTextDiv: {
     display: 'flex',
     justifyContent: 'flex-end',
     flexDirection: 'column',
