@@ -68,80 +68,82 @@ const ShoppingCart = () => {
         history.go('/cart')
     }
     return (
-        <div className={classes.root} >
-            <SecondHeader pageName='Shopping Cart' HideIcon={true} />
-            {cartList ?
-            <div>
-            <Typography variant="body1" 
-                align='right'
-                className={classes.statment} >
-                    {priceCounter()} المجموع (القطع {cartList.length})
-                    </Typography>
-            <div>
-                {cartList.map(item =>{
-                  return  <Card className={classes.rootCard} key={item.id} >
-                   
-                    <div className={classes.details}>
-                    <div className={classes.controls}  >
-                        <IconButton aria-label="delete" onClick={()=> deleteItem(item.id)} >
-                         <DeleteIcon />
-                        </IconButton>
-                      </div>
-                      <CardContent className={classes.content}>
-                        <Typography component="h6" variant="h6">
-                          {item.title}
-                        </Typography>
-                        <Typography variant="subtitle1" color="textSecondary">
-                          {item.price}
-                        </Typography>
-                      </CardContent>
-                     
+      <div className={classes.root}>
+      <SecondHeader pageName='Shopping Cart' HideIcon={true} />
+      {cartList ? (
+        <div>
+          <Typography
+            variant='body1'
+            align='right'
+            className={classes.statment}
+          >
+            {priceCounter()} المجموع (القطع {cartList.length})
+          </Typography>
+          <div>
+            {cartList.map((item) => {
+              return (
+                <Card className={classes.rootCard} key={item.id}>
+                  <div className={classes.details}>
+                    <div className={classes.controls}>
+                      <IconButton
+                        aria-label='delete'
+                        onClick={() => deleteItem(item.id)}
+                      >
+                        <DeleteIcon />
+                      </IconButton>
                     </div>
-                    <CardMedia
-                      className={classes.cover}
-                      image={item.photo_url}
-                      title={item.title}
-                    />
-                  </Card>
-                })}
-            </div>
-              <div>
-               <BottomNavigation className={classes.sendDiv}>
-               <Button
-                 variant="contained"
-                 color="primary"
-                 className={classes.sendButton}
-               >
-                 ارسال الطلب
-               </Button>
-             </BottomNavigation>
-             </div>
-            </div>
-           
-          :  
-               <div>
-               <div className={classes.roundDiv} >
-               </div>
-               <BottomNavigation className={classes.buttonDiv}>
-               <Typography variant="h6" align="center">
-                 انشئ متحفك الخاص
-               </Typography>
-               <Typography variant="body1" align="center">
-                 اجمع قطعك الفنيه المفضله لتشتريها لاحقا
-               </Typography>
-               <Button
-                 variant="contained"
-                 color="primary"
-                 className={classes.button}
-                 href='/'
-               >
-                 تصفح الاعمال الفنية
-               </Button>
-             </BottomNavigation>
-             </div>
-            
-        }
+                    <CardContent className={classes.content}>
+                      <Typography component='h6' variant='h6'>
+                        {item.title}
+                      </Typography>
+                      <Typography variant='subtitle1' color='textSecondary'>
+                        {item.price}
+                      </Typography>
+                    </CardContent>
+                  </div>
+                  <CardMedia
+                    className={classes.cover}
+                    image={item.photo_url}
+                    title={item.title}
+                  />
+                </Card>
+              );
+            })}
+          </div>
+          <div>
+            <BottomNavigation className={classes.sendDiv}>
+              <Button
+                variant='contained'
+                color='primary'
+                className={classes.sendButton}
+              >
+                ارسال الطلب
+              </Button>
+            </BottomNavigation>
+          </div>
         </div>
+      ) : (
+        <div>
+          <div className={classes.roundDiv}></div>
+          <BottomNavigation className={classes.buttonDiv}>
+            <Typography variant='h6' align='center'>
+              انشئ متحفك الخاص
+            </Typography>
+            <Typography variant='body1' align='center'>
+              اجمع قطعك الفنيه المفضله لتشتريها لاحقا
+            </Typography>
+            <Button
+              variant='contained'
+              color='primary'
+              className={classes.button}
+              href='/'
+            >
+              تصفح الاعمال الفنية
+            </Button>
+          </BottomNavigation>
+        </div>
+      )}
+    </div>
     )
 }
 
