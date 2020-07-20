@@ -7,8 +7,10 @@ import useStyles from '../../../Theme/FormsStyles';
 import axios from 'axios';
 import PasswordForm from './PasswordForm';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
+import { useHistory } from 'react-router-dom'
 
 const Login = () => {
+  const history = useHistory()
   const classes = useStyles();
   const isExist = 'Exist';
   const [error, setHasError] = useState(false);
@@ -55,7 +57,7 @@ const Login = () => {
     axios
       .post('/api/login', { values })
       .then((result) => {
-        console.log('result.status', result.data.message);
+        history.push('/');
       })
       .catch((err) => {
         setErrMessage(err.response.data.message);

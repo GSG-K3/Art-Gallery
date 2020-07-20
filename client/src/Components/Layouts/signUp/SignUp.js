@@ -5,10 +5,11 @@ import useStyles from '../../../Theme/FormsStyles';
 import axios from 'axios';
 import SignUpForm from './SignUpForm';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
+import { useHistory } from 'react-router-dom'
 
 const Signup = () => {
   const classes = useStyles();
-
+  const history = useHistory();
   const [next, setNext] = useState(true);
   const [message, setMessage] = useState(null);
   const [showPassword, setShowPassword] = useState({
@@ -56,7 +57,7 @@ const Signup = () => {
     await axios
       .post('/api/signup', { values })
       .then((result) => {
-        setMessage(result.data.message);
+        history.push('/login');
       })
       .catch((err) => {
         setMessage(err.response.data.err);

@@ -11,6 +11,7 @@ const getArtAndUser = require('./getArtAndUser')
 const clientCart = require('./clientCart')
 const addToCart = require('./addToCart')
 const deleteCartItem = require('./deleteCartItem')
+const getUserId = require('./getUserId')
 
 router.get('/api/get-art', getArt)
 router.post('/api/signup', checkEmail, signup)
@@ -22,5 +23,6 @@ router.get('/api/art-user/:id', getArtAndUser)
 router.get('/api/cart/:id', clientCart)
 router.post('/api/add-cart', addToCart)
 router.delete('/api/cart/delete', deleteCartItem)
+router.get('/api/user-id', getUserId)
 
 module.exports = router
