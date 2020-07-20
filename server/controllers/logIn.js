@@ -2,14 +2,13 @@ const getPassword = require('../database/queries/getPassword')
 const createToken = require('../middlewares/createToken')
 
 const login = (req, res) => {
-  const { email, password } = req.body
+  const { email, password } = req.body.values
 
-  if (email.trim().length === 0 || password.trim().length === 0) {
-    return res.status(400).clearCookie('token')
-      .json({
-        message: 'All Fields Are Requered !!!!!',
-        status: 400
-      })
+  if (!password || password.trim().length === 0) {
+    return res.status(400).json({
+      message: 'This Field is Required !!',
+      status: 400
+    })
   }
 
   getPassword(email)
