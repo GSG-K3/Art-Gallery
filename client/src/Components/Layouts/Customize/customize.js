@@ -1,81 +1,67 @@
-import ReactDOM from 'react-dom'
-import useDraggable from './useDraggable'
-import { Grid, Box } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import useStyles from './style'
-import SecondHeader from '../../Common/SecondHeder/SecondHeader'
+import ReactDOM from 'react-dom';
+import useDraggable from './useDraggable';
+import { Grid, Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import useStyles from './style';
+import SecondHeader from '../../Common/SecondHeder/SecondHeader';
 
-import React, { useEffect, useState, useRef } from 'react'
-import axios from 'axios'
-import CircularProgress from '@material-ui/core/CircularProgress'
-import green from '@material-ui/core/colors/green'
+import React, { useEffect, useState, useRef } from 'react';
+import axios from 'axios';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import green from '@material-ui/core/colors/green';
 
 const DraggableCard = ({ children }) => {
-  const cardRef = useRef(null)
-  useDraggable(cardRef)
+  const cardRef = useRef(null);
+  useDraggable(cardRef);
 
   return (
-    <Box className="card" ref={cardRef}>
+    <Box className='card' ref={cardRef}>
       {children}
     </Box>
-  )
-}
+  );
+};
 
 export default function Customize(props) {
-  const classes = useStyles()
-  let imagePreview = null
+  const classes = useStyles();
+  let imagePreview = null;
   if (props.location.state !== undefined) {
-    imagePreview = props.location.state.preview
+    imagePreview = props.location.state.preview;
   }
-  const [image, setImage] = useState(null)
-  const [artwork, setArtwork] = useState(null)
+  const [image, setImage] = useState(null);
+  const [artwork, setArtwork] = useState(null);
   useEffect(() => {
-    setImage(imagePreview)
+    setImage(imagePreview);
     if (artwork) {
-      return
+      return;
     }
     axios
       .get('/api/get-art')
       .then((result) => {
-        let art = result.data.filter(
-          (art) => art.type === 'customize',
-        )
-        setArtwork(art)
+        let art = result.data.filter((art) => art.type === 'customize');
+        setArtwork(art);
       })
 
-      .catch((err) => console.log(err))
-  }, [artwork])
+      .catch((err) => console.log(err));
+  }, [artwork]);
 
   return (
-    <Grid container direction="column">
-      <SecondHeader pageName="Live Preview" HideIcon="true" />
+    <Grid container direction='column'>
+      <SecondHeader pageName='Live Preview' HideIcon='true' />
 
       <Box className={classes.mainDiv}>
-        <Grid container direction="column">
-          <img
-            src={image}
-            alt="customize art"
-            className={classes.mainDiv}
-          />
+        <Grid container direction='column'>
+          <img src={image} alt='customize art' className={classes.mainDiv} />
         </Grid>
-        <Grid
-          container
-          direction="row"
-          spacing={2}
-          justify="space-around"
-        >
+        <Grid container direction='row' spacing={2} justify='space-around'>
           {artwork ? (
             artwork.map((art) => {
               return (
                 <Grid item xs={4}>
                   <DraggableCard>
-                    <img
-                      className={classes.root}
-                      src={art.photo_url}
-                    />
+                    <img className={classes.root} src={art.photo_url} />
                   </DraggableCard>
                 </Grid>
-              )
+              );
             })
           ) : (
             <div
@@ -88,5 +74,5 @@ export default function Customize(props) {
         </Grid>
       </Box>
     </Grid>
-  )
+  );
 }

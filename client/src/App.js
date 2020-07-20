@@ -3,7 +3,6 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ArtInfo from './Components/Layouts/ArtInfo/ArtInfo';
 import SearchPage from './Components/Layouts/SearchPage/SearchPage';
-import ShoppingCart from './Components/Layouts/ShoppingCart/ShoppingCart';
 import Home from './Components/Layouts/HomePage/Home';
 import Login from './Components/Layouts/Login/Login';
 import Signup from './Components/Layouts/signUp/SignUp';
