@@ -14,7 +14,7 @@ function AllArt() {
     if (artwork) {
       return;
     }
-    const id =1;
+    const id =4;
     axios
       .get(`/api/all-art-artist/${id}`)
       .then((result) =>  setArtwork(result.data))
