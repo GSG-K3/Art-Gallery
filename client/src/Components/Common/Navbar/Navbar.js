@@ -33,7 +33,8 @@ const NavBar = () => {
       />
       <BottomNavigationAction
         className={classes.iconClass}
-        label='Person'
+        label='You'
+        href='/profile/:id'
         icon={<PersonIcon />}
       />
     </BottomNavigation>
