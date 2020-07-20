@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ArtInfo from './Components/Layouts/ArtInfo/ArtInfo';
@@ -17,6 +16,7 @@ const App = () => {
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/art/:id' component={ArtInfo} />
         <Route exact path='/search' component={SearchPage} />
+        <Route exact path='/cart' component={ShoppingCart} />
       </Switch>
     </Router>
   );
