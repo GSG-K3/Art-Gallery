@@ -8,6 +8,7 @@ import Signup from './Components/Layouts/signUp/SignUp';
 import Customize from './Components/Layouts/Customize/customize';
 import UpladImage from './Components/Layouts/Customize/UploadImage';
 import ShoppingCart from './Components/Layouts/ShoppingCart/ShoppingCart';
+import NotFound from './Components/Errors/NotFoundError';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route exact path='/livePreview' component={UpladImage} />
         <Route exact path='/search' component={SearchPage} />
         <Route exact path='/cart' component={ShoppingCart} />
+        <Route component={NotFound} />
       </Switch>
     </Router>
   );

@@ -4,6 +4,7 @@ import grey from '@material-ui/core/colors/grey'
 const useStyles = makeStyles((theme) => ({
     root:{
       position: 'fixed',
+      top:0,
       zIndex:1,
       backgroundColor: 'white',
       maxWidth: 400,
@@ -17,7 +18,9 @@ const useStyles = makeStyles((theme) => ({
     search: {
       backgroundColor: 'white',
       position: 'fixed',
-      top:100,
+      top:90,
+      left:0,
+      right:0,
       marginBottom:20,
       borderRadius: theme.shape.borderRadius,
       '&:selected': {

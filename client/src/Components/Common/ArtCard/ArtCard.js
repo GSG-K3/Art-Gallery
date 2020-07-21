@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 
 const ArtCard = (props) => {
   const classes = useStyles()
-  const { title, imageUrl, category, cardKey } = props
+  const { title, imageUrl, price, cardKey } = props
 
   return (
     <Card className={classes.root} key={cardKey}>
@@ -49,7 +49,7 @@ const ArtCard = (props) => {
               color="textSecondary"
               component="p"
             >
-              {category}
+              {price}
             </Typography>
           </CardContent>
         </CardActionArea>
