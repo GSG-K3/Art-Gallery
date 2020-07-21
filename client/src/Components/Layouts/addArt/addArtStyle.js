@@ -40,6 +40,10 @@ const useStyle = makeStyles((theme) => ({
   },
   inputText : {
     paddingLeft : 35
+  },
+  submitBtn : {
+  color : '#6202EE',
+  width : 300,
   }
 }));
 

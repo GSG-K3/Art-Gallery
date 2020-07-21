@@ -1,13 +1,8 @@
 import React, { Fragment, useState } from 'react';
-import { TextField, Button, Checkbox } from '@material-ui/core';
+import { TextField, Button, Checkbox ,InputLabel, OutlinedInput, FormControl, InputAdornment ,Switch} from '@material-ui/core';
 import axios from 'axios';
-import { Switch } from '@material-ui/core';
 import UploadedImage from '../../Common/UplodeImage/uploadImage';
 import useStyle from './addArtStyle';
-import { InputLabel } from '@material-ui/core';
-import { OutlinedInput } from '@material-ui/core';
-import { FormControl } from '@material-ui/core';
-import { InputAdornment } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
@@ -81,7 +76,7 @@ const AddArt = () => {
   return (
     <div className={classes.root}>
     <SecondHeader pageName='إضافة قطعة فنية' HideIcon='true' />
-      <UploadedImage getImageUrl={getUrl} />
+      <UploadedImage getImageUrl={getUrl} className = {classes.inputsContaner} />
       <form className={classes.inputsContaner}>
         <TextField
           onChange={handleNameChange}
@@ -163,7 +158,11 @@ const AddArt = () => {
         </div>
         <p  className = {classes.customiseText} align='right'>هل يستطيع الزبائن طلب تعديل على هذه القطعة الفنية ؟</p>
 
-        <Button onClick={handleClick} type='submit' color='primary'>
+        <Button
+          className = {classes.submitBtn}
+          onClick={handleClick}
+           type='submit' 
+          >
          إضافة
         </Button>
       </form>
