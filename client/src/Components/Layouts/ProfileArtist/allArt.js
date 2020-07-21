@@ -7,20 +7,21 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import green from '@material-ui/core/colors/green';
 
 
-function AllArt() {
+ const AllArt = (props) =>{
   const classes = useStyles();
-  const [artwork, setArtwork] = useState(null);
-  useEffect(() => {
-    if (artwork) {
-      return;
-    }
-    const id =4;
-    axios
-      .get(`/api/all-art-artist/${id}`)
-      .then((result) =>  setArtwork(result.data))
-      .then ((result) =>   result)
-      .catch((err) => err);
-  }, [artwork]);
+
+  const {artwork} = props;
+
+  // useEffect(() => {
+  //   if (artwork) {
+  //     return;
+  //   }
+   
+  //   axios
+  //     .get(`/api/all-art-artist/${id}`)
+  //     .then((result) =>  setArtwork(result.data))
+  //     .catch((err) => err);
+  // }, [artwork]);
   
   return (
     <div>
