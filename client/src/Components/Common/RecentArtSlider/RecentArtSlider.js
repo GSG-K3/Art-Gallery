@@ -13,6 +13,7 @@ import useStyles from './sliderStyle';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import green from '@material-ui/core/colors/green';
 import { Link } from 'react-router-dom';
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -21,7 +22,7 @@ const SwipeableTextMobileStepper = () => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const [recentArt, setRecentArt] = React.useState(null);
-  const [error, setError] = React.useState(null);
+  const [errorFound, setError] = React.useState(null);
   const MAX_STEPS = 4;
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const SwipeableTextMobileStepper = () => {
         .then((res) => setRecentArt(res.data))
         .catch((err) => setError(err));
     }
-  }, [recentArt]);
+  }, [recentArt,errorFound]);
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -43,7 +44,14 @@ const SwipeableTextMobileStepper = () => {
 
   return (
     <div className={classes.root}>
-      {recentArt ? (
+      {errorFound ?
+       <div className={classes.errorDiv}>
+          <ErrorOutlineIcon className={classes.errorIcon} color='primary' />
+          <Typography variant='h6' align='center'>
+         حدث خطأ اثناء تحميل البيانات
+         </Typography>
+       </div> :
+       recentArt ? (
         <Grid container spacing={3} justify='center' alignItems='center'>
           <Grid item xs={12}>
             <AutoPlaySwipeableViews

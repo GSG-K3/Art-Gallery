@@ -6,6 +6,12 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
     },
   },
+  container : {
+  padding : theme.spacing(5),
+  position : 'relative',
+  height : 250,
+  },
+
   input: {
     display: 'none',
   },
@@ -21,12 +27,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   theImage: {
-    height: '50%',
-    width: '50%',
+    padding : 27,
+    zIndex : 9,
+    width: 222,
+    height : 168,
     textAlign: 'center',
     display: 'inline-block'
   },
   iconBox: {
+    position: 'absolute',
     padding : theme.spacing(2),
     width : 300,
     height : 250,
@@ -36,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
     borderStyle: 'solid',
     borderColor : theme.palette.primary.main,
     borderRadius : 7
+  },
+  buttonText: {
+    fontSize : 20,
+    color : '#6202EE'
   }
 }))
 

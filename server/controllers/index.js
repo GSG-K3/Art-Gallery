@@ -15,6 +15,7 @@ const clientCart = require('./clientCart')
 const addToCart = require('./addToCart')
 const deleteCartItem = require('./deleteCartItem')
 const getUserId = require('./getUserId')
+const serverErr = require('./serverError')
 
 router.get('/api/all-art-artist/:id', artsForArtist)
 router.get('/api/get-art', getArt)
@@ -30,5 +31,6 @@ router.get('/api/cart/:id', clientCart)
 router.post('/api/add-cart', addToCart)
 router.delete('/api/cart/delete', deleteCartItem)
 router.get('/api/user-id', getUserId)
+router.use(serverErr)
 
 module.exports = router

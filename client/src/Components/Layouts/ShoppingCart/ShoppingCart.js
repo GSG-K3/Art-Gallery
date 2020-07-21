@@ -12,12 +12,14 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
+import ServerErr from '../../Errors/ServerError'
 
 const ShoppingCart = () => {
     const classes = useStyles()
     const [cartList,setCartList]=useState(null)
     const [clientId,setId]=useState(null)
     const history = useHistory()
+    const [errorFound, setError]= useState(null)
 
     useEffect(
       () => {      
@@ -36,20 +38,13 @@ const ShoppingCart = () => {
                   }
                   setCartList(result.data)
               })
-              .catch(err => swal({
-                title: 'حدث خطأ في الخادم',
-                icon: 'warning',
-              }))}
+              .catch(err => err)
+            }
             }
           })
-          .catch(err=>swal({
-            title: 'حدث خطأ في الخادم',
-            icon: 'warning',
-          }))
+          .catch(err=> setError(true))
         
-        
-        
-        },[cartList,clientId]
+        },[cartList,clientId,errorFound]
     )
     const priceCounter=()=>{
         let counter =0
@@ -65,12 +60,19 @@ const ShoppingCart = () => {
             artwork: itemId,
             user : clientId
         }})
-        history.go('/cart')
+        .then(res => history.go('/cart'))
+        .catch(err => swal({
+          title: 'حدث خطأ في الخادم حاول مره اخرى',
+          icon: 'warning',
+        }))
+        
     }
     return (
       <div className={classes.root}>
       <SecondHeader pageName='Shopping Cart' HideIcon={true} />
-      {cartList ? (
+      { errorFound ?
+      <ServerErr /> 
+      : cartList ? (
         <div>
           <Typography
             variant='body1'

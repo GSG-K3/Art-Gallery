@@ -4,7 +4,7 @@ const deleteCartItem = (req, res) => {
   const data = req.body
   deleteItemCartQuery(data)
     .then(result => res.json({ message: 'Successfuly  Deleted' }))
-    .then(err => console.log(err.message))
+    .then(err => res.status(500).json({ message:'Internal Server Error' }))
 }
 
 module.exports = deleteCartItem
