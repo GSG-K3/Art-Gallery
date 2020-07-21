@@ -17,7 +17,7 @@ const ArtInfo = () => {
   const classes = useStyles();
   const [artUser, setArtUser] = useState(null);
   const [errorFound, setError] = useState(null);
-
+  let categories = null
   const artId = window.location.pathname.slice(5, 10);
   useEffect(() => {
     if (artUser) {
@@ -28,6 +28,13 @@ const ArtInfo = () => {
       .then((result) => setArtUser(result.data))
       .catch((err) => console.log(err));
   }, [artUser]);
+
+  if(artUser){
+    const category = artUser[0].category
+    const catigoriesArray = JSON.parse(category)
+    categories = catigoriesArray
+  }
+  
 
   const addToCart = (artId) => {
     const userId = 5;
@@ -44,6 +51,7 @@ const ArtInfo = () => {
         'warning',
       );
   };
+
   return (
     <Grid container className={classes.root} direction='column'>
       <SecondHeader pageName='Details' />
@@ -62,7 +70,7 @@ const ArtInfo = () => {
             </Typography>
             <Typography variant='h6' align='center'>
               {artUser[0].name} (
-              <StarRoundedIcon style={{ color: yellow[400] }} />{' '}
+              <StarRoundedIcon style={{ color: yellow[400] }} />
               {artUser[0].rate})
             </Typography>
           </div>
@@ -82,24 +90,30 @@ const ArtInfo = () => {
             </Typography>
           </div>
           <div className={classes.divs}>
-            <Typography variant='body1' gutterBottom align='right'>
-              {artUser[0].size}
+            <Typography variant='body1' gutterBottom align='right' className ={classes.font}>
+              {artUser[0].size +' '+'cm'}
             </Typography>
             <Typography variant='h6' align='right'>
               الحجم
             </Typography>
           </div>
-          <div className={classes.divs}>
-            <Typography variant='body1' gutterBottom align='right'>
-              {artUser[0].category}
-            </Typography>
-            <Typography variant='h6' align='right'>
+          <div className = {classes.catigoriesTitle}>
+            <Typography variant='h6' align='rigth' >
               الفئة
             </Typography>
+            </div>
+          <div className={classes.categoriesDev}>
+          {categories.map(item => 
+          <div className = {classes.cateogiesItem }>
+           <Typography variant='body1' gutterBottom align='right' >
+          {item.title}
+            </Typography>
+         </div>
+         )}
           </div>
           <BottomNavigation className={classes.buttonDiv}>
             <Typography variant='h6' align='right'>
-              {artUser[0].price}
+              {artUser[0].price + '$'}
             </Typography>
             <Button
               variant='contained'
