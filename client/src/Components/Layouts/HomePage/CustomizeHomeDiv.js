@@ -4,9 +4,11 @@ import green from '@material-ui/core/colors/green'
 import customizePhoto from './customize.png'
 import useStyles from './style'
 import Typography from '@material-ui/core/Typography'
+import { useHistory } from 'react-router-dom'
 
 const CustomizeHomeDiv = () => {
   const classes = useStyles()
+  const history = useHistory()
 
   return (
     <div className={classes.customizeDiv}>
@@ -14,6 +16,7 @@ const CustomizeHomeDiv = () => {
         <ArrowBackIcon
           style={{ color: green[400] }}
           fontSize="large"
+          onClick={() => history.push('/livePreview')}
         />
         <Typography variant="h6" className={classes.text}>
           اختر ما يناسب محيطك
@@ -32,6 +35,8 @@ const CustomizeHomeDiv = () => {
         src={customizePhoto}
         alt="customize art"
         style={{ marginTop: 15 }}
+        onClick={() => history.push('/livePreview')}
+
       />
     </div>
   )
