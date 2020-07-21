@@ -1,5 +1,5 @@
-import { makeStyles } from '@material-ui/core/styles'
-import grey from '@material-ui/core/colors/grey'
+import { makeStyles } from '@material-ui/core/styles';
+import grey from '@material-ui/core/colors/grey';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -14,6 +14,21 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     marginRight: 25,
     marginLeft: 10,
+  },
+  categoriesDev: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    flexWrap: 'wrap',
+    maxWidth: 300,
+    marginRight: 25,
+    marginLeft: 10,
+  },
+  cateogiesItem: {
+    margin: theme.spacing(1),
+    backgroundColor: '#DADADA',
+    borderRadius: 30,
+    padding: theme.spacing(1),
   },
   root: {
     maxWidth: 400,
@@ -36,6 +51,16 @@ const useStyles = makeStyles((theme) => ({
     left: 0,
     right: 0,
   },
-}))
+  catigoriesTitle:{
+    maxWidth: 400,
+    display: 'flex',
+    alignItems: 'flex-end',
+    justifyContent: 'flex-end',
+    marginRight: 25 
+  },
+  font : {
+    paddingTop : 15
+  }
+}));
 
-export default useStyles
+export default useStyles;
