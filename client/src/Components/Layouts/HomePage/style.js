@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   galleryDiv:{
     maxWidth:400,
-    // flexGrow:1,
+    flexGrow:1,
     marginBottom:80,
   },
   galleryTextDiv: {
