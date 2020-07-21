@@ -11,6 +11,7 @@ cloudinary.config({
   api_secret: process.env.api_secret
 })
 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 const app = express()
 app.use(express.static(path.join(__dirname, '..', 'client', 'build')))
 app.use(express.json())

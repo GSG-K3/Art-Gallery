@@ -4,6 +4,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import EditIcon from '@material-ui/icons/Edit';
+import Profile from '../../Layouts/ProfileArtist/profile';
+
 import TuneIcon from '@material-ui/icons/Tune';
 
 const Header = (props) => {
@@ -11,11 +14,11 @@ const Header = (props) => {
   const { pageName } = props;
   return (
     <div className={classes.root}>
-      <Toolbar>
-        <Typography noWrap className={classes.title}>
-          {pageName}
-        </Typography>
-        {pageName === 'Search' ? (
+        <Toolbar >
+          
+          <Typography noWrap className={classes.title}>
+            {pageName}
+            {pageName === 'Search' ? (
           <IconButton
             edge='start'
             className={classes.filterButton}
@@ -24,17 +27,19 @@ const Header = (props) => {
             <TuneIcon />
           </IconButton>
         ) : null}
-
-        <IconButton
-          edge='start'
-          className={classes.shopButton}
-          aria-label='shop'
-          href='/cart'
-        >
-          <ShoppingCartIcon />
-        </IconButton>
-      </Toolbar>
+          </Typography>
+            <IconButton edge="start" className={classes.shopButton} color="#DADADA" aria-label="shop">
+            <ShoppingCartIcon />
+          </IconButton>
+          {pageName==="Your Profile"?
+          <IconButton edge="start" className={classes.editButton}   edge="start" color="#DADADA" aria-label="edit">
+            <EditIcon/>
+          </IconButton> 
+          :null
+          }
+          
+        </Toolbar>
     </div>
-  );
-};
-export default Header;
+  )
+}
+export default Header

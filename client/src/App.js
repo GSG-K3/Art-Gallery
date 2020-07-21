@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import AddArt from './Components/Layouts/addArt/addArt'
+import Profile from './Components/Layouts/ProfileArtist/profile'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ArtInfo from './Components/Layouts/ArtInfo/ArtInfo';
 import SearchPage from './Components/Layouts/SearchPage/SearchPage';
 import Home from './Components/Layouts/HomePage/Home';
@@ -16,6 +17,7 @@ const App = () => {
       <Switch>
         <Route exact path = '/addart' component = {AddArt}/>
         <Route exact path='/' component={Home} />
+        <Route exact path='/profile/:id' component={Profile} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={Signup} />
         <Route exact path='/art/:id' component={ArtInfo} />
