@@ -11,6 +11,7 @@ import { InputAdornment } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import SecondHeader from '../../Common/SecondHeder/SecondHeader';
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
@@ -79,6 +80,7 @@ const AddArt = () => {
 
   return (
     <div className={classes.root}>
+    <SecondHeader pageName='إضافة قطعة فنية' HideIcon='true' />
       <UploadedImage getImageUrl={getUrl} />
       <form className={classes.inputsContaner}>
         <TextField
