@@ -52,7 +52,7 @@ const Gallery = () => {
               <Grid item xs={6}>
                 <ArtCard
                   title={art.title}
-                  artist={art.name}
+                  price={art.price}
                   imageUrl={art.photo_url}
                   cardKey={art.id}
                 />

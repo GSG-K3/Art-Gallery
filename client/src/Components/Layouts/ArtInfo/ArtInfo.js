@@ -20,6 +20,7 @@ const ArtInfo = () => {
   const [errorFound, setError] = useState(null);
   let userId = null
   const artId = window.location.pathname.slice(5, 10);
+  console.log(artId,'iddd')
   useEffect(() => {
     if (artUser) {
       return;
@@ -28,7 +29,7 @@ const ArtInfo = () => {
       .get(`/api/art-user/${artId}`)
       .then((result) => {
         if(result.data.length>0){
-
+          console.log(result.data)
           setArtUser(result.data)
         }
         else setError(true)
