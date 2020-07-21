@@ -12,9 +12,31 @@ const useStyle = makeStyles((theme) => ({
     alignItems: 'center',
   },
   singleInput: {
-    padding: 5,
+    margin: theme.spacing(1),
     width : 300
   },
+  customiseDiv:{
+    display : 'flex',
+    flexDirection: 'row-reverse',
+    width: 300,
+    justifyContent: 'space-between'
+  },
+  switch: {
+    marginTop: 23
+  },
+  customiseText:{
+    marginTop : 0,
+    color: '#606060',
+    width : 300
+  },
+  
+  lastInput:{
+    margin : theme.spacing(1),
+    width : 300
+  },
+  inputText : {
+    paddingLeft : 35
+  }
 }));
 
 export default useStyle;
