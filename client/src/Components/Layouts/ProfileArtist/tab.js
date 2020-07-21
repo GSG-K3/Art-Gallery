@@ -15,6 +15,7 @@ import AllArt from './allArt'
 import  addArtImage from './addArt.png'
 
 
+
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
   
@@ -48,8 +49,8 @@ function TabPanel(props) {
 const AllTab = (props) => {
     const classes = useStyles();
     const theme = useTheme();
-    const {pageName,artistName}=props
-  
+    const {pageName,artistName } = props;
+
     const [valueTab, setValueTab] = React.useState(2);
 
       const handleChangeTab = (event, newValueTab) => {
@@ -59,14 +60,20 @@ const AllTab = (props) => {
         setValueTab(index);
       };
       const [artwork, setArtwork] = useState(null);
+
+      console.log(artistName.id,"artistName");
       useEffect(() => {
-        if (artwork) {
-          return;
-        }
-        axios
-          .get('/api/all-art-artist/1')
-          .then((result) => {if(result.data.rows > 0 ){setArtwork(result.data)}})
-          .catch((err) => console.log(err));
+        
+            if (artwork) {
+              return;
+            }
+
+            axios 
+              .get(`/api/all-art-artist/${artistName.id}`)
+              .then((result) => {if(result.data.rows > 0 ){setArtwork(result.data)}})
+              .catch((err) => console.log(err));        
+      
+        
       }, [artwork]);
 
         return(
@@ -94,7 +101,7 @@ const AllTab = (props) => {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={valueTab} index={0} dir={theme.direction}>
-                <AllArt artwork={artwork}/>
+                <AllArt artwork={artwork} />
                 </TabPanel>
                 <TabPanel value={valueTab}  index={1} dir={theme.direction}>
 
