@@ -69,11 +69,11 @@ const ArtInfo = () => {
   };
   return (
     <Grid container className={classes.root} direction='column'>
-      <SecondHeader pageName='Details' />
       {errorFound ?
       <ServerErr /> :
       artUser ? (
         <div>
+        <SecondHeader pageName='Details' />
           <div className={classes.root}>
             <img
               src={artUser[0].photo_url}

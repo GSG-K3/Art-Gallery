@@ -33,7 +33,8 @@ const SearchPage = () => {
     return art.filter(
       (artwork) =>
         artwork.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-        artwork.category.toLowerCase().includes(searchValue.toLowerCase()),
+        artwork.category.toLowerCase().includes(searchValue.toLowerCase())||
+        artwork.name.toLowerCase().includes(searchValue.toLowerCase()),
     );
   };
   const handleChange = (e) => {
@@ -76,7 +77,7 @@ const SearchPage = () => {
                   <Grid item xs={6}>
                     <ArtCard
                       title={artwork.title}
-                      category={artwork.category}
+                      artist={artwork.name}
                       imageUrl={artwork.photo_url}
                       cardKey={artwork.id}
                     />

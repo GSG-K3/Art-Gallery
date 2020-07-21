@@ -38,7 +38,7 @@ const Gallery = () => {
           اخر الاعمال الفنية المضافه لمعرضنا
         </Typography>
       </div>
-      <Grid container direction='row' spacing={2} justify='space-around'>
+      <Grid container direction='row' spacing={2} justify='space-around' className={classes.galleryDiv}>
         {errorFound ?
         <div className={classes.errorDiv} >
           <ErrorOutlineIcon className={classes.errorIcon} color='primary' />
@@ -52,7 +52,7 @@ const Gallery = () => {
               <Grid item xs={6}>
                 <ArtCard
                   title={art.title}
-                  category={art.category}
+                  artist={art.name}
                   imageUrl={art.photo_url}
                   cardKey={art.id}
                 />
