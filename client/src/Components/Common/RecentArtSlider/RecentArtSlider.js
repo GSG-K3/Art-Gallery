@@ -29,7 +29,7 @@ const SwipeableTextMobileStepper = () => {
     if (recentArt) {
     } else {
       axios
-        .get('/api/recentb')
+        .get('/api/recent')
         .then((res) => setRecentArt(res.data))
         .catch((err) => setError(err));
     }
