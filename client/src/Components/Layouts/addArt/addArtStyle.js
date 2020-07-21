@@ -15,6 +15,10 @@ const useStyle = makeStyles((theme) => ({
     margin: theme.spacing(1),
     width : 300
   },
+  descriptionInput: {
+    margin: theme.spacing(1),
+    width : 300,
+  },
   customiseDiv:{
     display : 'flex',
     flexDirection: 'row-reverse',
