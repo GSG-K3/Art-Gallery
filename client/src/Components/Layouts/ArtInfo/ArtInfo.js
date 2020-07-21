@@ -26,7 +26,14 @@ const ArtInfo = () => {
     }
     axios
       .get(`/api/art-user/${artId}`)
-      .then((result) => setArtUser(result.data))
+      .then((result) => {
+        if(result.data.length>0){
+
+          setArtUser(result.data)
+        }
+        else setError(true)
+      }
+      )
       .catch((err) => setError(true));
   }, [artUser]);
 
