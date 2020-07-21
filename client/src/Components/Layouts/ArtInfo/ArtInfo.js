@@ -12,6 +12,7 @@ import green from '@material-ui/core/colors/green';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
 import swal from 'sweetalert';
+import ServerErr from '../../Errors/ServerError'
 
 const ArtInfo = () => {
   const classes = useStyles();
@@ -26,7 +27,7 @@ const ArtInfo = () => {
     axios
       .get(`/api/art-user/${artId}`)
       .then((result) => setArtUser(result.data))
-      .catch((err) => console.log(err));
+      .catch((err) => setError(true));
   }, [artUser]);
 
   const addToCart = (artId) => {
@@ -52,17 +53,19 @@ const ArtInfo = () => {
               .catch(
                 (err) => swal('حدث خطأ اثناء العمليه .. يرجى المحاوله مجددا'),
                 'warning',
-              );
-             
-          
+              );       
             }})
-            .catch(err => err)
+            .catch(err => swal('حدث خطأ اثناء العمليه .. يرجى المحاوله مجددا'),
+            'warning',
+          )
        
   };
   return (
     <Grid container className={classes.root} direction='column'>
       <SecondHeader pageName='Details' />
-      {artUser ? (
+      {errorFound ?
+      <ServerErr /> :
+      artUser ? (
         <div>
           <div className={classes.root}>
             <img

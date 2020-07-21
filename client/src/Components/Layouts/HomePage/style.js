@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   galleryDiv:{
     maxWidth:400,
-    flexGrow:1,
+    // flexGrow:1,
     marginBottom:80,
   },
   galleryTextDiv: {
@@ -34,6 +34,19 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     marginBottom: 30,
   },
+  errorDiv:{
+    marginTop:0,
+    marginBottom:100,
+    display:'flex',
+    flexDirection:'column',
+    justifyContent:'center',
+  },
+  errorIcon:{
+    margin:theme.spacing(6),
+    fontSize:50,
+    marginLeft:theme.spacing(13),
+  }
+
 }))
 
 export default useStyles

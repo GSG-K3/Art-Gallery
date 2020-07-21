@@ -31,6 +31,18 @@ const useStyles = makeStyles((theme) => ({
     bottom: 23,
     right: 1,
   },
+  errorDiv:{
+    marginTop:0,
+    marginBottom:100,
+    display:'flex',
+    flexDirection:'column',
+    justifyContent:'center',
+  },
+  errorIcon:{
+    margin:theme.spacing(6),
+    fontSize:50,
+    marginLeft:theme.spacing(20),
+  },
 }))
 
 export default useStyles

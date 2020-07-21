@@ -6,10 +6,13 @@ import axios from 'axios';
 import { Grid } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import green from '@material-ui/core/colors/green';
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+
 
 const Gallery = () => {
   const classes = useStyles();
   const [artwork, setArtwork] = useState(null);
+  const [errorFound,setError] = useState(null)
   useEffect(() => {
     if (artwork) {
       return;
@@ -17,7 +20,7 @@ const Gallery = () => {
     axios
       .get('/api/get-art')
       .then((result) => setArtwork(result.data))
-      .catch((err) => console.log(err));
+      .catch((err) => setError(true));
   }, [artwork]);
   return (
     <div>
@@ -36,7 +39,14 @@ const Gallery = () => {
         </Typography>
       </div>
       <Grid container direction='row' spacing={2} justify='space-around'>
-        {artwork ? (
+        {errorFound ?
+        <div className={classes.errorDiv} >
+          <ErrorOutlineIcon className={classes.errorIcon} color='primary' />
+        <Typography variant='h6' align='center' >
+          حدث خطأ اثناء تحميل البيانات
+          </Typography>
+        </div>:
+        artwork ? (
           artwork.map((art) => {
             return (
               <Grid item xs={6}>
