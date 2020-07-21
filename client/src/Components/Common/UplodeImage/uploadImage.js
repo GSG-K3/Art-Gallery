@@ -8,14 +8,13 @@ import useStyles from './uploadImageStyle';
 const UploadImage = ({ getImageUrl }) => {
   const classes = useStyles();
   const [image, addImage] = useState('');
-  const [imageName, addImageName] = useState('choose file');
+  const [imageName, addImageName] = useState('إختر صورة');
   const [uploadedImage, setUploadedImage] = useState('');
 
   const handleImage = async (e) => {
     addImage(e.target.files[0]);
     addImageName(e.target.files[0].name);
 
-    // for backend it's a js thing it construct a set of key and value representing form fields and their values
     const formData = new FormData();
     formData.append('Image', e.target.files[0]);
     try {

@@ -10,8 +10,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   icon: {
-    fontSize: 200,
-    alignItems: 'center'
+    fontSize: 160,
+    alignItems: 'center',
+    padding : 0
   },
 
   uploadContaner: {
@@ -27,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
   },
   iconBox: {
     padding : theme.spacing(2),
+    width : 300,
+    height : 250,
     display: 'flex',
     flexDirection : 'column',
     border : 3,
