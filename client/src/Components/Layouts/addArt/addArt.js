@@ -28,7 +28,6 @@ const AddArt = () => {
   const [sold, setSold] = useState('false');
 
   const getUrl = (url) => {
-    console.log(url, 'url from addArt');
     setImageUrl(url);
   };
 
@@ -54,7 +53,6 @@ const AddArt = () => {
   }
 
   const handleClick = (e) => {
-    alert('preventDefault');
     e.preventDefault();
     const data = {
       photo: imageUrl,
@@ -92,7 +90,7 @@ const AddArt = () => {
         />
         <TextField
           onChange={handleDescription}
-          className={classes.singleInput}
+          className={classes.descriptionInput}
           id='outlined-helperText'
           label='الوصف'
           variant='outlined'
