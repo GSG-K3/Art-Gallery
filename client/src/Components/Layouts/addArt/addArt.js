@@ -21,7 +21,7 @@ const AddArt = () => {
   const [artName, setArtName] = useState('');
   const [description, setDesciption] = useState('');
   const [customization, setCustomization] = useState('sell');
-  const [catigory, setCatigory] = useState('');
+  const [catigory, setCatigory] = useState([]);
   const [formData, setFormData] = useState({});
   const [price, setPrice] = useState(0);
   const [size, setSize] = useState('');
@@ -79,8 +79,6 @@ const AddArt = () => {
       .catch((err) => console.log(err));
   };
 
-  console.log(formData);
-
   return (
     <div className={classes.root}>
       <UploadedImage getImageUrl={getUrl} />
@@ -89,19 +87,20 @@ const AddArt = () => {
           onChange={handleNameChange}
           className={classes.singleInput}
           id='outlined-helperText'
-          label='art name'
+          label='إسم القطعة الفنية'
           variant='outlined'
         />
         <TextField
           onChange={handleDescription}
           className={classes.singleInput}
           id='outlined-helperText'
-          label='description'
+          label='الوصف'
           variant='outlined'
         />
         <Autocomplete
           onChange={(event, newValue) => {
-            setCatigory(newValue);
+            const Nvalue = JSON.stringify(newValue)
+            setCatigory(Nvalue);
           }}
           multiple
           id='checkboxes-tags-demo'
@@ -124,16 +123,16 @@ const AddArt = () => {
               className={classes.singleInput}
               {...params}
               variant='outlined'
-              label='catigories'
+              label='الفئات'
               placeholder='choose your art catigories'
             />
           )}
         />
 
         <FormControl>
-          <InputLabel htmlFor='outlined-adornment-amount'>price</InputLabel>
+          <InputLabel className = {classes.inputText} htmlFor='outlined-adornment-amount'>السعر</InputLabel>
           <OutlinedInput
-            className={classes.singleInput}
+            className={classes.lastInput}
             id='outlined-adornment-amount'
             onChange={handlePriceChange}
             startAdornment={<InputAdornment position='start'>$</InputAdornment>}
@@ -141,9 +140,9 @@ const AddArt = () => {
           />
         </FormControl>
         <FormControl>
-          <InputLabel htmlFor='outlined-adornment-amount'>size</InputLabel>
+          <InputLabel  className = {classes.inputText} htmlFor='outlined-adornment-amount'>الحجم</InputLabel>
           <OutlinedInput
-            className={classes.singleInput}
+            className={classes.lastInput}
             id='outlined-adornment-amount'
             onChange={handleSizeChange}
             startAdornment={
@@ -152,17 +151,20 @@ const AddArt = () => {
             labelWidth={60}
           />
         </FormControl>
-        <h1>customisation</h1>
-        <p>will the user be able to request modifications to your artwork?</p>
+        <div className = {classes.customiseDiv} >
+        <h1 align='right'>قابل للتعديل </h1>
         <Switch
+          className = {classes.switch}
           checked={customization.check}
           onChange={handleCustomization}
           name='customization'
           color='primary'
         />
+        </div>
+        <p  className = {classes.customiseText} align='right'>هل يستطيع الزبائن طلب تعديل على هذه القطعة الفنية ؟</p>
 
         <Button onClick={handleClick} type='submit' color='primary'>
-          Next
+         إضافة
         </Button>
       </form>
     </div>
@@ -170,13 +172,22 @@ const AddArt = () => {
 };
 
 const catigories = [
-  { title: 'painting' },
-  { title: 'drawing' },
-  { title: 'scaulpture' },
-  { title: 'printmaking' },
-  { title: 'photography' },
-  { title: 'decorative arts' },
-  { title: 'classic' },
+  { title: 'لوحات' },
+  { title: 'لوحات زيتية' },
+  { title: 'فوسيفساء' },
+  { title: 'حرف يدوية' },
+  { title: 'صور فوتوغرافية' },
+  { title: 'تطريز' },
+  { title: 'حرف' },
+  { title: 'لوحة ثلاثية الأبعاد' },
+  { title: 'الفن الكلاسيكي' },
+  { title: 'الفن الرقمي' },
+  { title: ' الفن التاريخي' },
+  { title: 'ملون' },
+  { title: 'لوحة رصاصية' },
+  { title: 'أبيض وأسود' },
+
+  
 ];
 
 export default AddArt;
