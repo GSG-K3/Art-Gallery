@@ -18,6 +18,7 @@ const ArtInfo = () => {
   const [artUser, setArtUser] = useState(null);
   const [errorFound, setError] = useState(null);
   let categories = null
+  let userId = null
   const artId = window.location.pathname.slice(5, 10);
   useEffect(() => {
     if (artUser) {
@@ -37,19 +38,34 @@ const ArtInfo = () => {
   
 
   const addToCart = (artId) => {
-    const userId = 5;
-    axios
-      .post('/api/add-cart', {
-        user: userId,
-        artwork: artId,
-      })
-      .then((result) =>
-        swal('رائع !!', 'يمكنك الذهاب الى سلة مشترياتك للتحقق', 'success'),
-      )
-      .catch(
-        (err) => swal('حدث خطأ اثناء العمليه .. يرجى المحاوله مجددا'),
-        'warning',
-      );
+    axios.get('/api/user-id')
+          .then(result=> {
+            if(!result.data.success){
+              swal({
+                title: "الرجاء تسجيل الدخول لاتمام العملية",
+                icon: "warning",
+              })
+              
+            }
+            else{
+              userId = result.data.id
+              axios
+              .post('/api/add-cart', {
+                user: userId,
+                artwork: artId,
+              })
+              .then((result) =>
+                swal('رائع !!', 'يمكنك الذهاب الى سلة مشترياتك للتحقق', 'success'),
+              )
+              .catch(
+                (err) => swal('حدث خطأ اثناء العمليه .. يرجى المحاوله مجددا'),
+                'warning',
+              );
+             
+          
+            }})
+            .catch(err => err)
+       
   };
 
   return (
@@ -74,6 +90,7 @@ const ArtInfo = () => {
               {artUser[0].rate})
             </Typography>
           </div>
+          <div className={classes.detailDiv}>
           <div
             className={classes.divs}
             style={{
@@ -110,6 +127,7 @@ const ArtInfo = () => {
             </Typography>
          </div>
          )}
+          </div>
           </div>
           <BottomNavigation className={classes.buttonDiv}>
             <Typography variant='h6' align='right'>

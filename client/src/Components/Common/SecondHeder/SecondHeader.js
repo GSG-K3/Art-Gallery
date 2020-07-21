@@ -28,6 +28,7 @@ const SecondHeader = (props) => {
         edge="start"
         aria-label="shop"
         className={classes.shopButton}
+        href='/cart'
       >
         <ShoppingCartIcon />
       </IconButton>
