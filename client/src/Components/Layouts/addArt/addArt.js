@@ -131,7 +131,7 @@ const AddArt = () => {
               {...params}
               variant='outlined'
               label='الفئات'
-              placeholder='choose your art catigories'
+              placeholder='اختر نوع الفن'
             />
           )}
         />
