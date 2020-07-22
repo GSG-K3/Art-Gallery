@@ -5,7 +5,7 @@ import Fab from '@material-ui/core/Fab';
 import useStyles from './style';
 import { Link } from 'react-router-dom';
 
-function AddButton(pathId) {
+function AddButton({pathId}) {
   const classes = useStyles();
   return (
     <div>
