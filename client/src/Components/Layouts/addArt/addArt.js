@@ -1,5 +1,14 @@
 import React, { Fragment, useState } from 'react';
-import { TextField, Button, Checkbox ,InputLabel, OutlinedInput, FormControl, InputAdornment ,Switch} from '@material-ui/core';
+import {
+  TextField,
+  Button,
+  Checkbox,
+  InputLabel,
+  OutlinedInput,
+  FormControl,
+  InputAdornment,
+  Switch,
+} from '@material-ui/core';
 import axios from 'axios';
 import UploadedImage from '../../Common/UplodeImage/uploadImage';
 import useStyle from './addArtStyle';
@@ -45,8 +54,8 @@ const AddArt = () => {
   };
 
   const handleSizeChange = (e) => {
-    setSize(e.target.value)
-  }
+    setSize(e.target.value);
+  };
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -57,9 +66,9 @@ const AddArt = () => {
       type: customization,
       category: catigory,
       price: price,
-      size : size ,
-      sold : sold,
-      user_id : 1
+      size: size,
+      sold: sold,
+      user_id: 1,
     };
 
     setFormData(data);
@@ -75,8 +84,8 @@ const AddArt = () => {
 
   return (
     <div className={classes.root}>
-    <SecondHeader pageName='إضافة قطعة فنية' HideIcon='true' />
-      <UploadedImage getImageUrl={getUrl} className = {classes.inputsContaner} />
+      <SecondHeader pageName='إضافة قطعة فنية' HideIcon='true' />
+      <UploadedImage getImageUrl={getUrl} className={classes.inputsContaner} />
       <form className={classes.inputsContaner}>
         <TextField
           onChange={handleNameChange}
@@ -94,7 +103,7 @@ const AddArt = () => {
         />
         <Autocomplete
           onChange={(event, newValue) => {
-            const Nvalue = JSON.stringify(newValue)
+            const Nvalue = JSON.stringify(newValue);
             setCatigory(Nvalue);
           }}
           multiple
@@ -125,7 +134,12 @@ const AddArt = () => {
         />
 
         <FormControl>
-          <InputLabel className = {classes.inputText} htmlFor='outlined-adornment-amount'>السعر</InputLabel>
+          <InputLabel
+            className={classes.inputText}
+            htmlFor='outlined-adornment-amount'
+          >
+            السعر
+          </InputLabel>
           <OutlinedInput
             className={classes.lastInput}
             id='outlined-adornment-amount'
@@ -135,7 +149,12 @@ const AddArt = () => {
           />
         </FormControl>
         <FormControl>
-          <InputLabel  className = {classes.inputText} htmlFor='outlined-adornment-amount'>الحجم</InputLabel>
+          <InputLabel
+            className={classes.inputText}
+            htmlFor='outlined-adornment-amount'
+          >
+            الحجم
+          </InputLabel>
           <OutlinedInput
             className={classes.lastInput}
             id='outlined-adornment-amount'
@@ -146,24 +165,26 @@ const AddArt = () => {
             labelWidth={60}
           />
         </FormControl>
-        <div className = {classes.customiseDiv} >
-        <h1 align='right'>قابل للتعديل </h1>
-        <Switch
-          className = {classes.switch}
-          checked={customization.check}
-          onChange={handleCustomization}
-          name='customization'
-          color='primary'
-        />
+        <div className={classes.customiseDiv}>
+          <h1 align='right'>قابل للتعديل </h1>
+          <Switch
+            className={classes.switch}
+            checked={customization.check}
+            onChange={handleCustomization}
+            name='customization'
+            color='primary'
+          />
         </div>
-        <p  className = {classes.customiseText} align='right'>هل يستطيع الزبائن طلب تعديل على هذه القطعة الفنية ؟</p>
+        <p className={classes.customiseText} align='right'>
+          هل يستطيع الزبائن طلب تعديل على هذه القطعة الفنية ؟
+        </p>
 
         <Button
-          className = {classes.submitBtn}
+          className={classes.submitBtn}
           onClick={handleClick}
-           type='submit' 
-          >
-         إضافة
+          type='submit'
+        >
+          إضافة
         </Button>
       </form>
     </div>
@@ -185,8 +206,6 @@ const catigories = [
   { title: 'ملون' },
   { title: 'لوحة رصاصية' },
   { title: 'أبيض وأسود' },
-
-  
 ];
 
 export default AddArt;

@@ -47,49 +47,49 @@ const UploadImage = ({ getImageUrl }) => {
 
   return (
     <Fragment className={classes.root}>
-    <div className = {classes.container}>
-      <form onSubmit={handleSubmit} className={classes.uploadContaner}>
-        <input
-          className={classes.input}
-          type='file'
-          id='icon-button-file'
-          name='img'
-          accept='image/*'
-          onChange={handleImage}
-        />
-        <Grid
-          alignItems='center'
-          justify='center'
-          item
-          direction='column'
-          containe
-          className={classes.iconBox}
-        >
-          <label htmlFor='icon-button-file'>
-            <IconButton
-              aria-label='upload picture'
-              component='span'
-              color='primary'
-            >
-              <AddIcon className={classes.icon} />
-            </IconButton>
-          </label>
-          <label className={classes.buttonText}>{imageName}</label>
-        </Grid>
-        <Button
-          className={classes.input}
-          type='submit'
-          label='submit'
-          color='primary'
-        >
-          submit
-        </Button>
-      </form>
-      <Box component='div' display={displayStatus}>
-        <Grid alignItems='center' justify='center' item container>
-          <img className={classes.theImage} src={uploadedImage} />
-        </Grid>
-      </Box>
+      <div className={classes.container}>
+        <form onSubmit={handleSubmit} className={classes.uploadContaner}>
+          <input
+            className={classes.input}
+            type='file'
+            id='icon-button-file'
+            name='img'
+            accept='image/*'
+            onChange={handleImage}
+          />
+          <Grid
+            alignItems='center'
+            justify='center'
+            item
+            direction='column'
+            containe
+            className={classes.iconBox}
+          >
+            <label htmlFor='icon-button-file'>
+              <IconButton
+                aria-label='upload picture'
+                component='span'
+                color='primary'
+              >
+                <AddIcon className={classes.icon} />
+              </IconButton>
+            </label>
+            <label className={classes.buttonText}>{imageName}</label>
+          </Grid>
+          <Button
+            className={classes.input}
+            type='submit'
+            label='submit'
+            color='primary'
+          >
+            submit
+          </Button>
+        </form>
+        <Box component='div' display={displayStatus}>
+          <Grid alignItems='center' justify='center' item container>
+            <img className={classes.theImage} src={uploadedImage} />
+          </Grid>
+        </Box>
       </div>
     </Fragment>
   );
