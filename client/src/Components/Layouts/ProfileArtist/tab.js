@@ -94,20 +94,25 @@ const AllTab = (props) => {
               <AllArt artwork={artwork} />
             </TabPanel>
             <TabPanel value={valueTab} index={1} dir={theme.direction}>
+            <Grid container direction='row' spacing={2} justify='space-around'>
               {artwork
                 ? artwork
+                
                     .filter((art) => art.type.includes('customize'))
                     .map((filteredName) => (
-                      <Grid item xs={6}>
+                      
+                      <Grid item xs={6}   >
                         <ArtCard
-                          title={filteredName.titel}
-                          category={filteredName.category}
-                          imageurl={filteredName.photo_url}
+                          
+                          title={filteredName.title}
+                          price={filteredName.price}
+                          imageUrl={filteredName.photo_url}
                           cardKey={filteredName.id}
                         />
                       </Grid>
                     ))
                 : null}
+                </Grid>
             </TabPanel>
           </SwipeableViews>
         </div>
