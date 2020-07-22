@@ -32,6 +32,11 @@ const useStyles = makeStyles((theme) => ({
 
 
         },
+
+        addArtBtn : {
+          textDecoration : 'none',
+          color : 'none'
+        }
    
 }))
 
