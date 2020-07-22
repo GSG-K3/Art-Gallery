@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import ArtCard from '../../Common/ArtCard/ArtCard';
 import AllArt from './allArt';
-import addArtImage from './addArt.png';
+import addArtImage from './addArt.jpg';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
