@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState , useEffect} from 'react';
 import {
   TextField,
   Button,
@@ -31,6 +31,7 @@ const AddArt = () => {
   const [price, setPrice] = useState(0);
   const [size, setSize] = useState('');
   const [sold, setSold] = useState('false');
+  const artestId = window.location.pathname.slice(8 , 12)
 
   const getUrl = (url) => {
     setImageUrl(url);
@@ -68,10 +69,12 @@ const AddArt = () => {
       price: price,
       size: size,
       sold: sold,
-      user_id: 1,
+      user_id: artestId,
     };
 
     setFormData(data);
+
+  
 
     axios
       .post('/api/add-art', data)
@@ -180,7 +183,8 @@ const AddArt = () => {
         </p>
 
         <Button
-          className={classes.submitBtn}
+          // className={classes.submitBtn}
+          color = 'primary'
           onClick={handleClick}
           type='submit'
         >
