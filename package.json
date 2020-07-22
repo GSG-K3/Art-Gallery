@@ -4,10 +4,12 @@
   "description": "1) Arab artists don’t have platform to share their artwork and the social media is not a reliable place to sell art beside it doesn't protect their copyright  2) Clients don't have a platform with a different type of art work , and it's hard for them to find a piece of art that fits their place . ### the solution : an application that allows the artists to market their art work , and allows the clients to customise some of the arts .",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "NODE_ENV=production node server/index.js",
     "client": "cd client && npm start",
+    "client-install": "cd client && npm install",
     "dev": "concurrently \"npm run start\" \"npm run client\"",
     "heroku-postbuild": "cd client && npm install && npm run build",
+    "server": "nodemon server/index.js",
     "build": "cd client && npm run build"
 
   },
