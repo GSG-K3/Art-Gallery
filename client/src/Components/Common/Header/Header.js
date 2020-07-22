@@ -22,17 +22,20 @@ const Header = (props) => {
       axios.get('/api/user-id')
         .then(result => {
           if(!result.data.success){
-            return
+           return setIsLogin(null)
           }
-          setIsLogin(true)
+          return setIsLogin(true)
         })
         .catch(err => err)
-    }
+      }
+      console.log(isLogin,'ifffff')
   },[isLogin])
 
   const handelLogOut= ()=> {
     axios.post('/api/logout')
-    .then(result => history.push('/'))
+    .then(result =>{ 
+      setIsLogin(null)
+      history.push('/')})
     .catch(err => swal({
       title: 'حدث خطأ أثناء تسجيل الخروج يرجى المحاوله مره اخرى',
       icon: 'warning',
@@ -53,7 +56,7 @@ const Header = (props) => {
             <TuneIcon />
           </IconButton>
         ) 
-        : isLogin||pageName!='Search' ?
+        : isLogin && pageName!='Search' ?
         <IconButton
         edge='start'
         className={classes.filterButton}
