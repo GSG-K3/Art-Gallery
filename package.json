@@ -11,7 +11,6 @@
     "heroku-postbuild": "cd client && npm install && npm run build",
     "server": "nodemon server/index.js",
     "build": "cd client && npm run build"
-
   },
   "repository": {
     "type": "git",

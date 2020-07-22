@@ -5,38 +5,43 @@ import PersonIcon from '@material-ui/icons/Person';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeIcon from '@material-ui/icons/Home';
+import { useHistory } from 'react-router-dom';
 
 const NavBar = () => {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const history = useHistory();
 
   return (
-    <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      showLabels
-      className={classes.root}
-    >
-      <BottomNavigationAction
-        className={classes.iconClass}
-        href='/'
-        label='Home'
-        icon={<HomeIcon />}
-      />
-      <BottomNavigationAction
-        className={classes.iconClass}
-        href='/search'
-        label='Search'
-        icon={<SearchIcon />}
-      />
-      <BottomNavigationAction
-        className={classes.iconClass}
-        label='Person'
-        icon={<PersonIcon />}
-      />
-    </BottomNavigation>
+    <div>
+      <BottomNavigation
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        showLabels
+        className={classes.root}
+      >
+        <BottomNavigationAction
+          className={classes.iconClass}
+          href='/'
+          label='Home'
+          icon={<HomeIcon />}
+        />
+        <BottomNavigationAction
+          className={classes.iconClass}
+          href='/search'
+          label='Search'
+          icon={<SearchIcon />}
+        />
+        <BottomNavigationAction
+          className={classes.iconClass}
+          label='You'
+          onClick={() => history.push('/login')}
+          icon={<PersonIcon />}
+        />
+      </BottomNavigation>
+    </div>
   );
 };
 export default NavBar;
