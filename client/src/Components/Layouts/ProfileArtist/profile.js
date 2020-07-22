@@ -1,77 +1,58 @@
-
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import axios from 'axios';
-import useStyles  from './style';
+import useStyles from './style';
 import Navbar from '../../Common/Navbar/Navbar';
-import ProfileHeader from './profileH'
-import AddButton from './addButton'
-import Tabs from './tab'
-import Header from '../../Common/Header/Header'
+import ProfileHeader from './profileH';
+import AddButton from './addButton';
+import Tabs from './tab';
+import Header from '../../Common/Header/Header';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
+import SecondHeader from '../../Common/SecondHeder/SecondHeader';
 
-function Profile() {
+const Profile = (props) => {
   const classes = useStyles();
   const [artistValue, setArtistValue] = useState(null);
-  const [clientId,setId] = useState(null);
-  const history = useHistory()
+  let id = null;
+  let idApi = null;
+  let idArtist = null;
+  if (props.location.state) {
+    idArtist = props.location.state.idArtist;
+    id = props.location.state.ArtistId;
+  }
+  if (idArtist) {
+    idApi = idArtist;
+  } else idApi = id;
+
   useEffect(() => {
-    axios.get('/api/user-id')
-        .then(result=> {
-          if(!result.data.success){
-           history.push('/login')
-          } 
+    if (!artistValue || idApi) {
+      axios
+        .get(`/api/artist/${idApi}`)
+        .then((result) => setArtistValue(result.data))
 
-          else { 
-            if(result.data.role === 'client'){
-              history.push('/cart')
-            }
-         
+        .catch((err) => err);
+    }
+  }, [idApi]);
 
-                    if (!artistValue)  
-                    { 
-                      setId(result.data.id)
-                      axios
-                      .get(`/api/artist/${result.data.id}`)
-                      .then((result) =>  setArtistValue(result.data))
-                       
-                      .catch((err) => err);
-
-
-                    }
-                    }
-   
-    
-  
-    }) 
-  
-    .catch(err=>swal({
-      title: 'حدث خطأ في الخادم',
-      icon: 'warning',
-    }))
-
-  }, [artistValue]);
-  
-  
   return (
-    
     <Grid container direction='column' className={classes.root}>
-      
-      {artistValue?
-     <div>
-      
-      <Header pageName='Your Profile'  />
-      {artistValue? 
-      <ProfileHeader  pageName='Your Profile'  artistName={artistValue}/>
-    : null}
-      <Tabs  artistName = {artistValue}  />
-      <AddButton/>
-      </div>
-    : null }  
-      <Navbar/>
-      
-      
+      {artistValue ? (
+        <div>
+          {idApi === id ? (
+            <Header pageName='Your Profile' HideIcon={true} />
+          ) : (
+            <SecondHeader pageName='Artist Profile' HideIcon='true' />
+          )}
+
+          {artistValue ? (
+            <ProfileHeader pageName='Your Profile' artistName={artistValue} />
+          ) : null}
+          <Tabs artistName={artistValue} />
+          {idApi === id ? <AddButton /> : null}
+        </div>
+      ) : null}
+      <Navbar />
     </Grid>
   );
 }
