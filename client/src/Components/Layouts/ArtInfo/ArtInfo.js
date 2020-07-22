@@ -13,6 +13,7 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
 import swal from 'sweetalert';
 import { Link } from 'react-router-dom';
+import ServerErr from '../../Errors/ServerError'
 
 const ArtInfo = () => {
   const classes = useStyles();
@@ -20,52 +21,60 @@ const ArtInfo = () => {
   const [errorFound, setError] = useState(null);
   let userId = null;
   const artId = window.location.pathname.slice(5, 10);
+
   useEffect(() => {
     if (artUser) {
       return;
     }
     axios
       .get(`/api/art-user/${artId}`)
-      .then((result) => setArtUser(result.data))
-      .catch((err) => console.log(err));
+      .then((result) => {
+        if(result.data.length>0){
+          setArtUser(result.data)
+        }
+        else setError(true)
+      }
+      )
+      .catch((err) => setError(true));
   }, [artUser]);
 
   const addToCart = (artId) => {
-    axios
-      .get('/api/user-id')
-      .then((result) => {
-        if (!result.data.success) {
-          swal({
-            title: 'الرجاء تسجيل الدخول لاتمام العملية',
-            icon: 'warning',
-          });
-        } else {
-          userId = result.data.id;
-          axios
-            .post('/api/add-cart', {
-              user: userId,
-              artwork: artId,
-            })
-            .then((result) =>
-              swal(
-                'رائع !!',
-                'يمكنك الذهاب الى سلة مشترياتك للتحقق',
-                'success',
-              ),
-            )
-            .catch(
-              (err) => swal('حدث خطأ اثناء العمليه .. يرجى المحاوله مجددا'),
-              'warning',
-            );
-        }
-      })
-      .catch((err) => err);
+    axios.get('/api/user-id')
+          .then(result=> {
+            if(!result.data.success){
+              swal({
+                title: "الرجاء تسجيل الدخول لاتمام العملية",
+                icon: "warning",
+              })
+              
+            }
+            else{
+              userId = result.data.id
+              axios
+              .post('/api/add-cart', {
+                user: userId,
+                artwork: artId,
+              })
+              .then((result) =>
+                swal('رائع !!', 'يمكنك الذهاب الى سلة مشترياتك للتحقق', 'success'),
+              )
+              .catch(
+                (err) => swal('حدث خطأ اثناء العمليه .. يرجى المحاوله مجددا'),
+                'warning',
+              );       
+            }})
+            .catch(err => swal('حدث خطأ اثناء العمليه .. يرجى المحاوله مجددا'),
+            'warning',
+          )
+       
   };
   return (
     <Grid container className={classes.root} direction='column'>
-      <SecondHeader pageName='Details' />
-      {artUser ? (
+      {errorFound ?
+      <ServerErr /> :
+      artUser ? (
         <div>
+        <SecondHeader pageName='Details' />
           <div className={classes.root}>
             <img
               src={artUser[0].photo_url}

@@ -8,10 +8,12 @@ import axios from 'axios';
 import { Grid } from '@material-ui/core';
 import ArtCard from '../../Common/ArtCard/ArtCard';
 import useStyles from './style';
+import ServerErr from '../../Errors/ServerError'
 
 const SearchPage = () => {
   const [searchValue, setValue] = useState('');
   const [art, setArt] = useState(null);
+  const [errorFound,setError] = useState(null)
   const classes = useStyles();
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const SearchPage = () => {
     axios
       .get('/api/get-art')
       .then((result) => setArt(result.data))
-      .catch((err) => console.log(err));
+      .catch((err) => setError(true));
   }, [art]);
 
   const filterSearch = () => {
@@ -31,7 +33,7 @@ const SearchPage = () => {
     return art.filter(
       (artwork) =>
         artwork.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-        artwork.category.toLowerCase().includes(searchValue.toLowerCase()),
+        artwork.category.toLowerCase().includes(searchValue.toLowerCase())
     );
   };
   const handleChange = (e) => {
@@ -40,9 +42,10 @@ const SearchPage = () => {
 
   return (
     <div>
+      {!errorFound ?
+      <div>
       <Grid container className={classes.root}>
         <Header pageName='Search' />
-
         <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon style={{ color: grey[700] }} />
@@ -73,7 +76,7 @@ const SearchPage = () => {
                   <Grid item xs={6}>
                     <ArtCard
                       title={artwork.title}
-                      category={artwork.category}
+                      price={artwork.price}
                       imageUrl={artwork.photo_url}
                       cardKey={artwork.id}
                     />
@@ -84,6 +87,8 @@ const SearchPage = () => {
         </Grid>
       </div>
       <Navbar />
+      </div>
+      : <ServerErr />}
     </div>
   );
 };
