@@ -30,7 +30,6 @@ const ArtInfo = () => {
       .get(`/api/art-user/${artId}`)
       .then((result) => {
         if(result.data.length>0){
-          console.log(result.data)
           setArtUser(result.data)
         }
         else setError(true)
