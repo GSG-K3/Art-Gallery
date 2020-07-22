@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
         zIndex:1,
         marginLeft:200,
         backgroundColor:'#6202EE',
-        borderRadius: 50,
+        borderRadius: 30,
         color:'white',
         fontSize:13,
         textTransform: 'none',
