@@ -15,7 +15,7 @@ const SecondHeader = (props) => {
     <div className={classes.root}>
       <div className={classes.titelDiv}>
         <ArrowBackIcon
-          fontSize="large"
+          fontSize='small'
           onClick={() => history.goBack()}
         />
         <Typography variant="h6" className={classes.title}>
