@@ -27,6 +27,15 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     left: 0,
   },
+  editButton: {
+    color: '#DADADA',
+    position:'absolute',
+    top:6,
+    right:6,
+   marginRight:theme.spacing(5),
+   marginBottom:5,
+
+  },
   title: {
     flexGrow: 1,
     color: '#000000',

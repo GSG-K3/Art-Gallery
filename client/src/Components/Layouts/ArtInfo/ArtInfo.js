@@ -12,13 +12,14 @@ import green from '@material-ui/core/colors/green';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 import ServerErr from '../../Errors/ServerError'
 
 const ArtInfo = () => {
   const classes = useStyles();
   const [artUser, setArtUser] = useState(null);
   const [errorFound, setError] = useState(null);
-  let userId = null
+  let userId = null;
   const artId = window.location.pathname.slice(5, 10);
 
   useEffect(() => {
@@ -85,44 +86,56 @@ const ArtInfo = () => {
             <Typography variant='h5' align='center'>
               {artUser[0].title}
             </Typography>
+
+            <Link
+              to={{
+                pathname: `/profile/${artUser[0].artist_id}`,
+                state: { idArtist: artUser[0].artist_id },
+              }}
+              className='text-link'
+            >
+              <Typography variant='h6' align='center'>
+                {artUser[0].name}
+              </Typography>
+            </Link>
             <Typography variant='h6' align='center'>
-              {artUser[0].name} (
+              (
               <StarRoundedIcon style={{ color: yellow[400] }} />{' '}
               {artUser[0].rate})
             </Typography>
           </div>
           <div className={classes.detailDiv}>
-          <div
-            className={classes.divs}
-            style={{
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-              marginTop: 20,
-            }}
-          >
-            <Typography variant='h6' align='right'>
-              الوصف
-            </Typography>
-            <Typography variant='body1' gutterBottom align='right'>
-              {artUser[0].description}
-            </Typography>
-          </div>
-          <div className={classes.divs}>
-            <Typography variant='body1' gutterBottom align='right'>
-              {artUser[0].size}
-            </Typography>
-            <Typography variant='h6' align='right'>
-              الحجم
-            </Typography>
-          </div>
-          <div className={classes.divs}>
-            <Typography variant='body1' gutterBottom align='right'>
-              {artUser[0].category}
-            </Typography>
-            <Typography variant='h6' align='right'>
-              الفئة
-            </Typography>
-          </div>
+            <div
+              className={classes.divs}
+              style={{
+                flexDirection: 'column',
+                justifyContent: 'flex-end',
+                marginTop: 20,
+              }}
+            >
+              <Typography variant='h6' align='right'>
+                الوصف
+              </Typography>
+              <Typography variant='body1' gutterBottom align='right'>
+                {artUser[0].description}
+              </Typography>
+            </div>
+            <div className={classes.divs}>
+              <Typography variant='body1' gutterBottom align='right'>
+                {artUser[0].size}
+              </Typography>
+              <Typography variant='h6' align='right'>
+                الحجم
+              </Typography>
+            </div>
+            <div className={classes.divs}>
+              <Typography variant='body1' gutterBottom align='right'>
+                {artUser[0].category}
+              </Typography>
+              <Typography variant='h6' align='right'>
+                الفئة
+              </Typography>
+            </div>
           </div>
           <BottomNavigation className={classes.buttonDiv}>
             <Typography variant='h6' align='right'>
