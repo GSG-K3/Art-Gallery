@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
       },
       fab :{
           marginRight: theme.spacing(5),
-
           width:170,
           height:50,
           fontFamily: ' Roboto',
@@ -28,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
           color:'white',
           fontSize:13,
           textTransform: 'none',
+          marginBottom:70,
          
 
 
