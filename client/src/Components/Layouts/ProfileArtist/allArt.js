@@ -9,6 +9,7 @@ const AllArt = (props) => {
   const classes = useStyles();
 
   const { artwork } = props;
+  
 
   return (
     <div>
@@ -18,9 +19,9 @@ const AllArt = (props) => {
             return (
               <Grid item xs={6}>
                 <ArtCard
-                  title={art.titel}
-                  category={art.category}
-                  imageurl={art.photo_url}
+                  title={art.title}
+                  price={art.price}
+                  imageUrl={art.photo_url}
                   cardKey={art.id}
                 />
               </Grid>
