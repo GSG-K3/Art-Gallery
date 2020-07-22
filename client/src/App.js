@@ -12,6 +12,7 @@ import UpladImage from './Components/Layouts/Customize/UploadImage';
 import ShoppingCart from './Components/Layouts/ShoppingCart/ShoppingCart';
 import NotFound from './Components/Errors/NotFoundError';
 
+
 const App = () => {
   return (
     <Router>

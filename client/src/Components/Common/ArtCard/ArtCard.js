@@ -26,7 +26,7 @@ const ArtCard = (props) => {
     <Card className={classes.root} key={cardKey}>
       <Link
         to={{ pathname: `/art/${cardKey}` }}
-        style={{ textDecoration: 'none' }}
+        style={{ textDecoration: 'none',color:'black' }}
       >
         <CardActionArea>
           <CardMedia
@@ -43,6 +43,7 @@ const ArtCard = (props) => {
               gutterBottom
               variant="subtitle1"
               component="h2"
+              align='right'
             >
               {title}
             </Typography>
@@ -51,6 +52,7 @@ const ArtCard = (props) => {
               variant="body2"
               color="textSecondary"
               component="p"
+              align='right'
             >
               {price + '$'}
             </Typography>

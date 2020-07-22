@@ -180,12 +180,12 @@ const SignUpForm = (props) => {
                   value={values.role}
                 >
                   <FormControlLabel
-                    value='Client'
+                    value='client'
                     control={<Radio required={true} color='primary' />}
                     label='Buying art'
                   />
                   <FormControlLabel
-                    value='Artist'
+                    value='artist'
                     control={<Radio required={true} color='primary' />}
                     label='Selling art'
                   />

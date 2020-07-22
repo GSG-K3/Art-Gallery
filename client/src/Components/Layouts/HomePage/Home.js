@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <Grid container direction="column" className={classes.root}>
-      <Header pageName="ART GALLERY" />
+      <Header pageName="Art Factory" />
       <RecentArtSlider />
       <CategoriesHomDiv />
       <CustomizeHomeDiv />

@@ -12,6 +12,7 @@ import green from '@material-ui/core/colors/green';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 import ServerErr from '../../Errors/ServerError'
 
 const ArtInfo = () => {
@@ -21,7 +22,7 @@ const ArtInfo = () => {
   let categories = null
   let userId = null
   const artId = window.location.pathname.slice(5, 10);
-  console.log(artId,'iddd')
+
   useEffect(() => {
     if (artUser) {
       return;
@@ -94,9 +95,21 @@ const ArtInfo = () => {
             <Typography variant='h5' align='center'>
               {artUser[0].title}
             </Typography>
+
+            <Link
+              to={{
+                pathname: `/profile/${artUser[0].artist_id}`,
+                state: { idArtist: artUser[0].artist_id },
+              }}
+              className='text-link'
+            >
+              <Typography variant='h6' align='center'>
+                {artUser[0].name}
+              </Typography>
+            </Link>
             <Typography variant='h6' align='center'>
-              {artUser[0].name} (
-              <StarRoundedIcon style={{ color: yellow[400] }} />
+             (
+              <StarRoundedIcon style={{ color: yellow[400] }} />{' '}
               {artUser[0].rate})
             </Typography>
           </div>
@@ -120,7 +133,7 @@ const ArtInfo = () => {
             <Typography variant='body1' gutterBottom align='right' className ={classes.font}>
               {artUser[0].size +' '+'cm'}
             </Typography>
-            <Typography variant='h6' align='right'>
+            <Typography variant='h6' gutterBottom align='right'>
               الحجم
             </Typography>
           </div>
