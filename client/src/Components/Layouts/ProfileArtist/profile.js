@@ -10,7 +10,6 @@ import Header from '../../Common/Header/Header';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
-import {Link} from 'react-router-dom'
 
 const Profile = (props) => {
   const classes = useStyles();
@@ -50,12 +49,12 @@ const Profile = (props) => {
             <ProfileHeader pageName='Your Profile' artistName={artistValue} />
           ) : null}
           <Tabs artistName={artistValue} />
-          {idApi === id ? <Link className =  {classes.addArtBtn}><AddButton /></Link> : null}
+          {idApi === id ? <AddButton pathId={idApi} /> : null}
         </div>
       ) : null}
       <Navbar />
     </Grid>
   );
-}
+};
 
 export default Profile;
