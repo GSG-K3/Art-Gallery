@@ -28,7 +28,6 @@ const Header = (props) => {
         })
         .catch(err => err)
       }
-      console.log(isLogin,'ifffff')
   },[isLogin])
 
   const handelLogOut= ()=> {
