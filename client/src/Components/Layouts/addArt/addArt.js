@@ -183,9 +183,9 @@ const AddArt = () => {
         </p>
 
         <Button
-          // className={classes.submitBtn}
-          color = 'primary'
-          onClick={handleClick}
+          className={classes.submitBtn}
+          variant='contained'
+           color='primary'
           type='submit'
         >
           إضافة

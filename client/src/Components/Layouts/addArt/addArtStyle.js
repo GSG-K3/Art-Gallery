@@ -42,7 +42,6 @@ const useStyle = makeStyles((theme) => ({
     paddingLeft: 35,
   },
   submitBtn: {
-    color: '#6202EE',
     width: 300,
   },
 }));
