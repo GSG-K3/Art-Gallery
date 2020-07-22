@@ -1,4 +1,4 @@
-import { makeStyles , useTheme  } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -22,8 +22,7 @@ const useStyles = makeStyles((theme) => ({
         position:'absolute',
         top:6,
         right:6,
-        marginLeft: theme.spacing(5),
-    
+        marginLeft: theme.spacing(5),    
       },
       editButton: {
         color: '#DADADA',
@@ -31,22 +30,22 @@ const useStyles = makeStyles((theme) => ({
         top:6,
         right:6,
        marginRight:theme.spacing(3),
-       marginBottom:5,
-    
+       marginBottom:5,    
       },
       large: {
-        width: theme.spacing(9),
-        height: theme.spacing(9),
-        marginLeft:theme.spacing(2)
+        width: theme.spacing(8),
+        height: theme.spacing(8),
+        marginLeft:theme.spacing(2),
+        backgroundColor:'#D7B7FD',
+        marginBottom:theme.spacing(4),
+        boxShadow: '2px 2px #6202EE',
       },
       artistName:{
-
         color: '#000000',
         fontFamily: 'Roboto',
         fontSyle: 'normal',
         fontWeight: '500',
-        fontSize: '18px',
-        
+        fontSize: '18px',        
       },
       Paper:{
         position:"sticky",
@@ -57,8 +56,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom:30,
         display: "flex",
         justifyContent: "center",
-        flexDirection: "column",
-       
+        flexDirection: "column", 
       },
       div2:{
         display: 'flex',
@@ -66,8 +64,7 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
       },
       editDiv:{
-          marginBottom:theme.spacing(2),
-         
+          marginBottom:theme.spacing(2),         
       },
       title: {
         flexGrow: 1,
