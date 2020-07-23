@@ -60,7 +60,6 @@ const useStyles = makeStyles((theme) => ({
       },
       div2:{
         display: 'flex',
-        textAlign:'center',
         alignItems: 'center',
       },
       editDiv:{
@@ -73,6 +72,11 @@ const useStyles = makeStyles((theme) => ({
         marginTop:40,
         marginBottom:10,
         fontWeight:'bold'
+      },
+      errorIcon:{
+        margin:theme.spacing(6),
+        fontSize:50,
+        marginLeft:theme.spacing(20),
       },
 }))
 export default useStyles;

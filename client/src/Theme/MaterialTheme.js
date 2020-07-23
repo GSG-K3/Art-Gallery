@@ -11,7 +11,7 @@ const theme = ()=> createMuiTheme({
     },
   },
   typography:{
-    fontFamily:`'Lateef', cursive`,
+    fontFamily:`'Mirza', cursive`,
   },
 });
 

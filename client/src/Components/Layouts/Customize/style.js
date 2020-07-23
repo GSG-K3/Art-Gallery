@@ -52,13 +52,13 @@ const useStyles = makeStyles((theme) => ({
   },
   input: {
     width: '344px',
-    height: '83px',
+    height: '73px',
     maxWidth: '95vw',
     marginTop: theme.spacing(3),
     display: 'flex-end',
     flexDirection: 'row-reverse',
-
     justifyContent: 'space-around',
+    textAlign:'center',
     boxShadow:
       ' 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14)',
   },
