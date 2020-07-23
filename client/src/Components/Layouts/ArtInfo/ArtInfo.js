@@ -19,7 +19,8 @@ const ArtInfo = () => {
   const classes = useStyles();
   const [artUser, setArtUser] = useState(null);
   const [errorFound, setError] = useState(null);
-  let userId = null;
+  let categories = null
+  let userId = null
   const artId = window.location.pathname.slice(5, 10);
 
   useEffect(() => {
@@ -37,6 +38,13 @@ const ArtInfo = () => {
       )
       .catch((err) => setError(true));
   }, [artUser]);
+
+  if(artUser){
+    const category = artUser[0].category
+    const catigoriesArray = JSON.parse(category)
+    categories = catigoriesArray
+  }
+  
 
   const addToCart = (artId) => {
     axios.get('/api/user-id')
@@ -68,6 +76,7 @@ const ArtInfo = () => {
           )
        
   };
+
   return (
     <Grid container className={classes.root} direction='column'>
       {errorFound ?
@@ -99,47 +108,53 @@ const ArtInfo = () => {
               </Typography>
             </Link>
             <Typography variant='h6' align='center'>
-              (
+             (
               <StarRoundedIcon style={{ color: yellow[400] }} />{' '}
               {artUser[0].rate})
             </Typography>
           </div>
           <div className={classes.detailDiv}>
-            <div
-              className={classes.divs}
-              style={{
-                flexDirection: 'column',
-                justifyContent: 'flex-end',
-                marginTop: 20,
-              }}
-            >
-              <Typography variant='h6' align='right'>
-                الوصف
-              </Typography>
-              <Typography variant='body1' gutterBottom align='right'>
-                {artUser[0].description}
-              </Typography>
+          <div
+            className={classes.divs}
+            style={{
+              flexDirection: 'column',
+              justifyContent: 'flex-end',
+              marginTop: 20,
+            }}
+          >
+            <Typography variant='h6' align='right'>
+              الوصف
+            </Typography>
+            <Typography variant='body1' gutterBottom align='right'>
+              {artUser[0].description}
+            </Typography>
+          </div>
+          <div className={classes.divs}>
+            <Typography variant='body1' gutterBottom align='right' className ={classes.font}>
+              {artUser[0].size +' '+'cm'}
+            </Typography>
+            <Typography variant='h6' gutterBottom align='right'>
+              الحجم
+            </Typography>
+          </div>
+          <div className = {classes.catigoriesTitle}>
+            <Typography variant='h6' align='rigth' >
+              الفئة
+            </Typography>
             </div>
-            <div className={classes.divs}>
-              <Typography variant='body1' gutterBottom align='right'>
-                {artUser[0].size}
-              </Typography>
-              <Typography variant='h6' align='right'>
-                الحجم
-              </Typography>
-            </div>
-            <div className={classes.divs}>
-              <Typography variant='body1' gutterBottom align='right'>
-                {artUser[0].category}
-              </Typography>
-              <Typography variant='h6' align='right'>
-                الفئة
-              </Typography>
-            </div>
+          <div className={classes.categoriesDev}>
+          {categories.map(item => 
+          <div className = {classes.cateogiesItem }>
+           <Typography variant='body1' gutterBottom align='right' >
+          {item.title}
+            </Typography>
+         </div>
+         )}
+          </div>
           </div>
           <BottomNavigation className={classes.buttonDiv}>
             <Typography variant='h6' align='right'>
-              {artUser[0].price}
+              {artUser[0].price + '$'}
             </Typography>
             <Button
               variant='contained'

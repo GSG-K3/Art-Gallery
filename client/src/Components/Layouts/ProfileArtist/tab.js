@@ -9,6 +9,7 @@ import ArtCard from '../../Common/ArtCard/ArtCard';
 import AllArt from './allArt';
 import addArtImage from './addArt.png';
 
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -122,7 +123,7 @@ const AllTab = (props) => {
             className={classes.addArtImage}
             src={addArtImage}
             alt='addArtImage'
-            style={{ marginLeft: 40, marginTop:210, }}
+            style={{ marginLeft: 40, marginTop: 180, width: 300 }}
           />
         </div>
       )}

@@ -30,6 +30,7 @@ const ArtCard = (props) => {
       >
         <CardActionArea>
           <CardMedia
+            align='right'
             component="img"
             alt={title}
             height="210"
@@ -38,6 +39,7 @@ const ArtCard = (props) => {
           />
           <CardContent>
             <Typography
+              align='right'
               gutterBottom
               variant="subtitle1"
               component="h2"
@@ -46,12 +48,13 @@ const ArtCard = (props) => {
               {title}
             </Typography>
             <Typography
+              align='right'
               variant="body2"
               color="textSecondary"
               component="p"
               align='right'
             >
-              {price}
+              {price + '$'}
             </Typography>
           </CardContent>
         </CardActionArea>

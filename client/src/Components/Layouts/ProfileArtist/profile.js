@@ -51,7 +51,7 @@ const Profile = (props) => {
           <Tabs artistName={artistValue} />
           {idApi === id ?
           <div className={classes.buttonDiv}>
-           <AddButton /> 
+           <AddButton  pathId={idApi} /> 
            </div>
            : null}
         </div>
@@ -61,6 +61,6 @@ const Profile = (props) => {
       </div>
     </Grid>
   );
-}
+};
 
 export default Profile;
