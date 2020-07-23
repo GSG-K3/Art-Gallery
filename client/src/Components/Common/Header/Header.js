@@ -69,7 +69,7 @@ const Header = (props) => {
             <ShoppingCartIcon />
           </IconButton>
         )} 
-        {isLogin && pageName!='Search' ?
+        {isLogin && pageName!='البحث' ?
         <IconButton
         edge='start'
         className={classes.filterButton}

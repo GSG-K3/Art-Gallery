@@ -69,7 +69,7 @@ const ShoppingCart = () => {
     }
     return (
       <div className={classes.root}>
-      <SecondHeader pageName='Shopping Cart' HideIcon={true} />
+      <SecondHeader pageName='السلة' HideIcon={true} />
       { errorFound ?
       <ServerErr /> 
       : cartList ? (

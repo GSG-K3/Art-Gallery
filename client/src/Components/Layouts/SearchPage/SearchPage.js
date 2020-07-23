@@ -45,13 +45,13 @@ const SearchPage = () => {
       {!errorFound ?
       <div>
       <Grid container className={classes.root}>
-        <Header pageName='Search' />
+        <Header pageName='البحث' />
         <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon style={{ color: grey[700] }} />
           </div>
           <InputBase
-            placeholder='Search'
+            placeholder='إبحث'
             classes={{
               root: classes.inputRoot,
               input: classes.inputInput,

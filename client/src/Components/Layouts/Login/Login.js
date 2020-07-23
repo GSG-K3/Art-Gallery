@@ -94,7 +94,7 @@ const Login = () => {
 
   return (
     <Grid container direction='column' className={classes.root}>
-      <SecondHeader pageName='Access' HideIcon='true' />
+      <SecondHeader pageName='الوصول' HideIcon='true' />
 
       <Container className={classes.Container}>
         {accountStatus !== isExist ? (

@@ -11,7 +11,7 @@ function AddButton({ pathId }) {
     <div>
       <Tooltip title='Add' aria-label='add'>
         <Link to={`/addart/${pathId}`} className={classes.addArtBtn}>
-          <Fab color='primary' className={classes.fab}>
+          <Fab variant="extended" color='primary' className={classes.fab}>
             <AddIcon className={classes.addIcon} />
             إضافة قطعة فنية جديدة
           </Fab>

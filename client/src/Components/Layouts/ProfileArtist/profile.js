@@ -42,7 +42,7 @@ const Profile = (props) => {
           {idApi === id ? (
             <Header pageName='Your Profile' HideIcon={true} />
           ) : (
-            <SecondHeader pageName='Artist Profile' HideIcon='true' />
+            <SecondHeader pageName='صفحة الفنان' HideIcon='true' />
           )}
 
           {artistValue ? (

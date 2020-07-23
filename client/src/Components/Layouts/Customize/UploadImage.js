@@ -22,7 +22,7 @@ export default function UpladImage() {
 
   return (
     <Grid container direction='column'>
-      <SecondHeader pageName='Live Preview' HideIcon='true' />
+      <SecondHeader pageName='ملائمة القطعة الفنية' HideIcon='true' />
       <div className={classes.formdiv}>
         <Typography className={classes.text} variant='h4' gutterBottom>
           قم بتحميل صورة <br /> لغرفتك

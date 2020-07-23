@@ -16,11 +16,13 @@ import { Autocomplete } from '@material-ui/lab';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
+import { useHistory } from 'react-router-dom'
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
 const AddArt = () => {
+  const history = useHistory();
   const classes = useStyle();
   const [imageUrl, setImageUrl] = useState(null);
   const [artName, setArtName] = useState('');
@@ -73,13 +75,13 @@ const AddArt = () => {
     };
 
     setFormData(data);
-
+   
   
 
     axios
       .post('/api/add-art', data)
       .then((res) => {
-        console.log(res);
+        history.goBack()
       })
 
       .catch((err) => console.log(err));
@@ -89,7 +91,9 @@ const AddArt = () => {
     <div className={classes.root}>
       <SecondHeader pageName='إضافة قطعة فنية' HideIcon='true' />
       <UploadedImage getImageUrl={getUrl} className={classes.inputsContaner} />
-      <form className={classes.inputsContaner}>
+      <form
+      onSubmit = {handleClick} 
+      className={classes.inputsContaner}>
         <TextField
           onChange={handleNameChange}
           className={classes.singleInput}
@@ -169,7 +173,7 @@ const AddArt = () => {
           />
         </FormControl>
         <div className={classes.customiseDiv}>
-          <h1 align='right'>قابل للتعديل </h1>
+          <h1 align='right' className = {classes.customizeTitle} >قابل للتعديل </h1>
           <Switch
             className={classes.switch}
             checked={customization.check}
@@ -182,10 +186,11 @@ const AddArt = () => {
           هل يستطيع الزبائن طلب تعديل على هذه القطعة الفنية ؟
         </p>
 
+      
         <Button
           className={classes.submitBtn}
           variant='contained'
-           color='primary'
+          color='primary'
           type='submit'
         >
           إضافة

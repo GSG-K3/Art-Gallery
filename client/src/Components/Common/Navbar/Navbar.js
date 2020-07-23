@@ -25,18 +25,18 @@ const NavBar = () => {
         <BottomNavigationAction
           className={classes.iconClass}
           href='/'
-          label='Home'
+          label='الرئيسية'
           icon={<HomeIcon />}
         />
         <BottomNavigationAction
           className={classes.iconClass}
           href='/search'
-          label='Search'
+          label='البحث'
           icon={<SearchIcon />}
         />
         <BottomNavigationAction
           className={classes.iconClass}
-          label='You'
+          label='أنت'
           onClick={() => history.push('/login')}
           icon={<PersonIcon />}
         />

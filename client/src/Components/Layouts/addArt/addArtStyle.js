@@ -26,7 +26,7 @@ const useStyle = makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   switch: {
-    marginTop: 23,
+    marginTop: 9,
   },
   customiseText: {
     marginTop: 0,
@@ -44,6 +44,13 @@ const useStyle = makeStyles((theme) => ({
   submitBtn: {
     width: 300,
   },
+  customizeTitle : {
+    fontSize : 22,
+  },
+  supmitLink : {
+    textDecoration: 'none',
+    color: 'white',
+  }
 }));
 
 export default useStyle;
