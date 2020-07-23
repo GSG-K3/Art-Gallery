@@ -1,10 +1,9 @@
 import ReactDOM from 'react-dom';
 import useDraggable from './useDraggable';
 import { Grid, Box } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import useStyles from './style';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
-
+import ServerErr from '../../Errors/ServerError';
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -23,6 +22,7 @@ const DraggableCard = ({ children }) => {
 
 export default function Customize(props) {
   const classes = useStyles();
+  const [erroeFound, setError]= useState(null)
   let imagePreview = null;
   if (props.location.state !== undefined) {
     imagePreview = props.location.state.preview;
@@ -40,14 +40,15 @@ export default function Customize(props) {
         let art = result.data.filter((art) => art.type === 'customize');
         setArtwork(art);
       })
-
-      .catch((err) => console.log(err));
-  }, [artwork]);
+      .catch((err) => setError(true));
+  }, [artwork,erroeFound]);
 
   return (
     <Grid container direction='column'>
+      {erroeFound ? 
+      <ServerErr />:
+    <div>
       <SecondHeader pageName='Live Preview' HideIcon='true' />
-
       <Box className={classes.mainDiv}>
         <Grid container direction='column'>
           <img src={image} alt='customize art' className={classes.mainDiv} />
@@ -73,6 +74,7 @@ export default function Customize(props) {
           )}
         </Grid>
       </Box>
+      </div>}
     </Grid>
   );
 }

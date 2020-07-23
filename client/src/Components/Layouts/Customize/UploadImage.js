@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Typography, Button, Grid } from '@material-ui/core';
 import useStyles from './style';
 import PhotoLibraryIcon from '@material-ui/icons/PhotoLibrary';
@@ -24,8 +23,8 @@ export default function UpladImage() {
     <Grid container direction='column'>
       <SecondHeader pageName='Live Preview' HideIcon='true' />
       <div className={classes.formdiv}>
-        <Typography className={classes.text} variant='h4' gutterBottom>
-          قم بتحميل صورة <br /> لغرفتك
+        <Typography className={classes.text} variant='h5' gutterBottom>
+          قم بتحميل صورة  للمكان المطلوب
         </Typography>
         <Typography variant='subtitle1' gutterBottom>
           ابحث عن سطح مستوٍ مع إضاءة جيدة
@@ -43,13 +42,12 @@ export default function UpladImage() {
                 variant='contained'
                 color='primary'
                 component='span'
-                endIcon={<PhotoLibraryIcon style={{ fontSize: 50 }} />}
+                endIcon={<PhotoLibraryIcon style={{ fontSize: 45 }} />}
               >
                 <div>
                   <Typography variant='p' gutterBottom>
-                    تحميل من
+                    تحميل صوره من
                   </Typography>
-
                   <Typography variant='h6' gutterBottom>
                     المعرض
                   </Typography>

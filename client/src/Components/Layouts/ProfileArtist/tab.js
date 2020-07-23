@@ -8,6 +8,7 @@ import SwipeableViews from 'react-swipeable-views';
 import ArtCard from '../../Common/ArtCard/ArtCard';
 import AllArt from './allArt';
 import addArtImage from './addArt.png';
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
 
 
 function TabPanel(props) {
@@ -44,7 +45,7 @@ const AllTab = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const { pageName, artistName } = props;
-
+  const [errorFound , setError] = useState(null)
   const [valueTab, setValueTab] = React.useState(2);
 
   const handleChangeTab = (event, newValueTab) => {
@@ -61,16 +62,19 @@ const AllTab = (props) => {
 
     axios
       .get(`/api/all-art-artist/${artistName[0].id}`)
-      .then((result) => {
-        if (result.data.length > 0) {
-          setArtwork(result.data);
-        }
-      })
-      .catch((err) => console.log(err));
+      .then((result) => setArtwork(result.data))
+      .catch((err) => setError(true));
   }, [artwork]);
   return (
     <div>
-      {artwork ? (
+      {errorFound ?
+       <div className={classes.errorDiv}>
+       <ErrorOutlineIcon className={classes.errorIcon} color='primary' />
+       <Typography variant='h6' align='center'>
+      حدث خطأ اثناء تحميل البيانات
+      </Typography>
+    </div> :
+      artwork ? (
         <div className={classes.Paper}>
           <Paper square>
             <Tabs
@@ -82,7 +86,6 @@ const AllTab = (props) => {
               centered
             >
               <Tab label='All Art' {...a11yProps(0)} />
-
               <Tab label='Customise only' {...a11yProps(1)} />
             </Tabs>
           </Paper>
@@ -98,13 +101,10 @@ const AllTab = (props) => {
             <Grid container direction='row' spacing={2} justify='space-around'>
               {artwork
                 ? artwork
-                
                     .filter((art) => art.type.includes('customize'))
                     .map((filteredName) => (
-                      
                       <Grid item xs={6}   >
-                        <ArtCard
-                          
+                        <ArtCard  
                           title={filteredName.title}
                           price={filteredName.price}
                           imageUrl={filteredName.photo_url}

@@ -7,13 +7,14 @@ import ProfileHeader from './profileH';
 import AddButton from './addButton';
 import Tabs from './tab';
 import Header from '../../Common/Header/Header';
-import { useHistory } from 'react-router-dom';
-import swal from 'sweetalert';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
+import ServerErr from '../../Errors/ServerError'
 
 const Profile = (props) => {
   const classes = useStyles();
   const [artistValue, setArtistValue] = useState(null);
+  const [errorFound , setError] = useState(null)
+
   let id = null;
   let idApi = null;
   let idArtist = null;
@@ -29,15 +30,21 @@ const Profile = (props) => {
     if (!artistValue || idApi) {
       axios
         .get(`/api/artist/${idApi}`)
-        .then((result) => setArtistValue(result.data))
-
-        .catch((err) => err);
+        .then((result) =>{ 
+        if(result.data.length==0){
+           setError(true)
+        }
+        return setArtistValue(result.data)}
+      )
+        .catch((err) => setError(true));
     }
   }, [idApi]);
 
   return (
     <Grid container direction='column' className={classes.root}>
-      {artistValue ? (
+      {errorFound  ?
+      <ServerErr /> :
+      artistValue ? (
         <div>
           {idApi === id ? (
             <Header pageName='Your Profile' HideIcon={true} />
