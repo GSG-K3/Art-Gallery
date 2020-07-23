@@ -123,7 +123,7 @@ const Login = () => {
             <Box className={classes.message}>
               {errMessage ? (
                 <Link to='/signup' className='text-link'>
-                  <p> .New user? Create your account Here.</p>
+                  <p> مستخدم جيديد ؟ أنشئ حساب جديد</p>
                 </Link>
               ) : null}
 
