@@ -16,6 +16,7 @@ import { Autocomplete } from '@material-ui/lab';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
+import {Link} from 'react-router-dom'
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
@@ -169,7 +170,7 @@ const AddArt = () => {
           />
         </FormControl>
         <div className={classes.customiseDiv}>
-          <h1 align='right'>قابل للتعديل </h1>
+          <h1 align='right' className = {classes.customizeTitle} >قابل للتعديل </h1>
           <Switch
             className={classes.switch}
             checked={customization.check}
@@ -182,14 +183,19 @@ const AddArt = () => {
           هل يستطيع الزبائن طلب تعديل على هذه القطعة الفنية ؟
         </p>
 
+       <Link
+        to = {`/profile/${artestId}`}
+        className = {classes.supmitLink}
+        >
         <Button
           className={classes.submitBtn}
           variant='contained'
-           color='primary'
+          color='primary'
           type='submit'
         >
           إضافة
         </Button>
+        </Link>
       </form>
     </div>
   );
