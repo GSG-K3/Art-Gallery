@@ -9,7 +9,6 @@ import ArtCard from '../../Common/ArtCard/ArtCard';
 import AllArt from './allArt';
 import addArtImage from './addArt.png';
 
-
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -95,25 +94,28 @@ const AllTab = (props) => {
               <AllArt artwork={artwork} />
             </TabPanel>
             <TabPanel value={valueTab} index={1} dir={theme.direction}>
-            <Grid container direction='row' spacing={2} justify='space-around'>
-              {artwork
-                ? artwork
-                
-                    .filter((art) => art.type.includes('customize'))
-                    .map((filteredName) => (
-                      
-                      <Grid item xs={6}   >
-                        <ArtCard
-                          
-                          title={filteredName.title}
-                          price={filteredName.price}
-                          imageUrl={filteredName.photo_url}
-                          cardKey={filteredName.id}
-                        />
-                      </Grid>
-                    ))
-                : null}
-                </Grid>
+              <Grid
+                container
+                direction='row'
+                spacing={2}
+                justify='space-around'
+              >
+                {artwork
+                  ? artwork
+
+                      .filter((art) => art.type.includes('customize'))
+                      .map((filteredName) => (
+                        <Grid item xs={6}>
+                          <ArtCard
+                            title={filteredName.title}
+                            price={filteredName.price}
+                            imageUrl={filteredName.photo_url}
+                            cardKey={filteredName.id}
+                          />
+                        </Grid>
+                      ))
+                  : null}
+              </Grid>
             </TabPanel>
           </SwipeableViews>
         </div>

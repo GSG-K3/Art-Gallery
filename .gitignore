@@ -1,6 +1,3 @@
 node_modules
 
-//tempfile
-tmp/
-
 config.env
