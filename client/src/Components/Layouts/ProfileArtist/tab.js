@@ -80,9 +80,9 @@ const AllTab = (props) => {
               variant='fullWidth'
               centered
             >
-              <Tab label='All Art' {...a11yProps(0)} />
+              <Tab label='كل القطع الفنية' {...a11yProps(0)} />
 
-              <Tab label='Customise only' {...a11yProps(1)} />
+              <Tab label='القابل للتعديل فقط' {...a11yProps(1)} />
             </Tabs>
           </Paper>
           <SwipeableViews
