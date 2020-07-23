@@ -123,11 +123,7 @@ const AllTab = (props) => {
             className={classes.addArtImage}
             src={addArtImage}
             alt='addArtImage'
-<<<<<<< HEAD
             style={{ marginLeft: 40, marginTop: 289, width: 300 }}
-=======
-            style={{ marginLeft: 40, marginTop:210, }}
->>>>>>> c64dcaa167e3f78d2f4c5414c351fb35b2593eb8
           />
         </div>
       )}
