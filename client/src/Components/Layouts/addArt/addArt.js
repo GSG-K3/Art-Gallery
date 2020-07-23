@@ -81,7 +81,7 @@ const AddArt = () => {
     axios
       .post('/api/add-art', data)
       .then((res) => {
-       history.push(`/profile/${artestId}`)
+        history.goBack()
       })
 
       .catch((err) => console.log(err));
