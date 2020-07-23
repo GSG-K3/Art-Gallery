@@ -46,7 +46,7 @@ export default function Customize(props) {
 
   return (
     <Grid container direction='column'>
-      <SecondHeader pageName='ملائمة القطعة الفنية' HideIcon='true' />
+      <SecondHeader pageName='معاينة' HideIcon='true' />
 
       <Box className={classes.mainDiv}>
         <Grid container direction='column'>

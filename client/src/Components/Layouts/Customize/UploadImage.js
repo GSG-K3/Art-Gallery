@@ -22,10 +22,10 @@ export default function UpladImage() {
 
   return (
     <Grid container direction='column'>
-      <SecondHeader pageName='ملائمة القطعة الفنية' HideIcon='true' />
+      <SecondHeader pageName='معاينة' HideIcon='true' />
       <div className={classes.formdiv}>
         <Typography className={classes.text} variant='h4' gutterBottom>
-          قم بتحميل صورة <br /> لغرفتك
+          قم بتحميل صورة <br /> لمحيطك
         </Typography>
         <Typography variant='subtitle1' gutterBottom>
           ابحث عن سطح مستوٍ مع إضاءة جيدة

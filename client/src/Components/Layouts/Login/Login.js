@@ -94,7 +94,7 @@ const Login = () => {
 
   return (
     <Grid container direction='column' className={classes.root}>
-      <SecondHeader pageName='الوصول' HideIcon='true' />
+      <SecondHeader pageName='تسجيل الدخول' HideIcon='true' />
 
       <Container className={classes.Container}>
         {accountStatus !== isExist ? (
@@ -123,7 +123,7 @@ const Login = () => {
             <Box className={classes.message}>
               {errMessage ? (
                 <Link to='/signup' className='text-link'>
-                  <p> مستخدم جيديد ؟ أنشئ حساب جديد</p>
+                  <p> مستخدم جديد ؟ أنشئ حساب جديد</p>
                 </Link>
               ) : null}
 

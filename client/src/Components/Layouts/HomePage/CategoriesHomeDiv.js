@@ -12,7 +12,7 @@ const CategoriesHomeDiv = () => {
     <div direction="column" className={classes.category}>
       <div className={classes.textDiv}>
         <ArrowBackIcon
-          style={{ color: green[400] }}
+          style={{ color: green[400] , cursor: 'pointer'}}
           fontSize="large"
         />
         <Typography
