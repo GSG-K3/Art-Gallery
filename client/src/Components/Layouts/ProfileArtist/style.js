@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '18px',
     margin: theme.spacing(1),
     zIndex: 1,
-    marginLeft: 200,
+    marginLeft: 185,
     backgroundColor: '#6202EE',
     borderRadius: 50,
     color: 'white',

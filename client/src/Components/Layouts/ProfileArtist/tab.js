@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import ArtCard from '../../Common/ArtCard/ArtCard';
 import AllArt from './allArt';
-import addArtImage from './addArt.jpg';
+import addArtImage from './addArt.png';
 
 
 function TabPanel(props) {
@@ -123,7 +123,7 @@ const AllTab = (props) => {
             className={classes.addArtImage}
             src={addArtImage}
             alt='addArtImage'
-            style={{ marginLeft: 40, marginTop: 289, width: 300 }}
+            style={{ marginLeft: 40, marginTop: 180, width: 300 }}
           />
         </div>
       )}
