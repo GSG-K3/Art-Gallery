@@ -16,12 +16,13 @@ import { Autocomplete } from '@material-ui/lab';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import SecondHeader from '../../Common/SecondHeder/SecondHeader';
-import {Link} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const icon = <CheckBoxOutlineBlankIcon fontSize='small' />;
 const checkedIcon = <CheckBoxIcon fontSize='small' />;
 
 const AddArt = () => {
+  const history = useHistory();
   const classes = useStyle();
   const [imageUrl, setImageUrl] = useState(null);
   const [artName, setArtName] = useState('');
@@ -33,7 +34,6 @@ const AddArt = () => {
   const [size, setSize] = useState('');
   const [sold, setSold] = useState('false');
   const artestId = window.location.pathname.slice(8 , 12)
-  console.log(artestId)
 
   const getUrl = (url) => {
     setImageUrl(url);
@@ -81,7 +81,7 @@ const AddArt = () => {
     axios
       .post('/api/add-art', data)
       .then((res) => {
-        console.log(res);
+       history.push(`/profile/${artestId}`)
       })
 
       .catch((err) => console.log(err));
@@ -186,10 +186,7 @@ const AddArt = () => {
           هل يستطيع الزبائن طلب تعديل على هذه القطعة الفنية ؟
         </p>
 
-       <Link
-        to = {`/profile/${artestId}`}
-        className = {classes.supmitLink}
-        > 
+      
         <Button
           className={classes.submitBtn}
           variant='contained'
@@ -198,7 +195,6 @@ const AddArt = () => {
         >
           إضافة
         </Button>
-        </Link>
       </form>
     </div>
   );
