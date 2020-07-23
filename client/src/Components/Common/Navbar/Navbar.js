@@ -36,7 +36,7 @@ const NavBar = () => {
         />
         <BottomNavigationAction
           className={classes.iconClass}
-          label='أنت'
+          label='حسابك'
           onClick={() => history.push('/login')}
           icon={<PersonIcon />}
         />

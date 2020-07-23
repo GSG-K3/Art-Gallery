@@ -40,13 +40,13 @@ const Profile = (props) => {
       {artistValue ? (
         <div>
           {idApi === id ? (
-            <Header pageName='Your Profile' HideIcon={true} />
+            <Header pageName='حسابك' HideIcon={true} />
           ) : (
-            <SecondHeader pageName='صفحة الفنان' HideIcon='true' />
+            <SecondHeader pageName= "معرض الفنان" HideIcon='true' />
           )}
 
           {artistValue ? (
-            <ProfileHeader pageName='Your Profile' artistName={artistValue} />
+            <ProfileHeader pageName='حسابك' artistName={artistValue} />
           ) : null}
           <Tabs artistName={artistValue} />
           {idApi === id ?

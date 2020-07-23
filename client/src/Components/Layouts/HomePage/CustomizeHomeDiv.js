@@ -14,7 +14,7 @@ const CustomizeHomeDiv = () => {
     <div className={classes.customizeDiv}>
       <div className={classes.textDiv}>
         <ArrowBackIcon
-          style={{ color: green[400] }}
+          style={{ color: green[400], cursor: 'pointer' }}
           fontSize="large"
           onClick={() => history.push('/livePreview')}
         />
@@ -34,7 +34,7 @@ const CustomizeHomeDiv = () => {
       <img
         src={customizePhoto}
         alt="customize art"
-        style={{ marginTop: 15 }}
+        style={{ marginTop: 15  , cursor: 'pointer'}}
         onClick={() => history.push('/livePreview')}
 
       />
