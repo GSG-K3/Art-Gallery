@@ -89,7 +89,7 @@ const AddArt = () => {
     <div className={classes.root}>
       <SecondHeader pageName='إضافة قطعة فنية' HideIcon='true' />
       <UploadedImage getImageUrl={getUrl} className={classes.inputsContaner} />
-      <form className={classes.inputsContaner}>
+      <form className={classes.inputsContaner} onSubmit={handleClick} >
         <TextField
           onChange={handleNameChange}
           className={classes.singleInput}

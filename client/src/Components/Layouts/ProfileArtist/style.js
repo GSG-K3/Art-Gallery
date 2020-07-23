@@ -30,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
         bottom:10,
         zIndex:1,
       },
+      addArtBtn: {
+        textDecoration: 'none',
+        color: 'white',
+      },
    
 }))
 
