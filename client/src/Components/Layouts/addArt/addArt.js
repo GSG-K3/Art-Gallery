@@ -33,6 +33,7 @@ const AddArt = () => {
   const [size, setSize] = useState('');
   const [sold, setSold] = useState('false');
   const artestId = window.location.pathname.slice(8 , 12)
+  console.log(artestId)
 
   const getUrl = (url) => {
     setImageUrl(url);
@@ -74,7 +75,7 @@ const AddArt = () => {
     };
 
     setFormData(data);
-
+   
   
 
     axios
@@ -90,7 +91,9 @@ const AddArt = () => {
     <div className={classes.root}>
       <SecondHeader pageName='إضافة قطعة فنية' HideIcon='true' />
       <UploadedImage getImageUrl={getUrl} className={classes.inputsContaner} />
-      <form className={classes.inputsContaner}>
+      <form
+      onSubmit = {handleClick} 
+      className={classes.inputsContaner}>
         <TextField
           onChange={handleNameChange}
           className={classes.singleInput}
@@ -186,7 +189,7 @@ const AddArt = () => {
        <Link
         to = {`/profile/${artestId}`}
         className = {classes.supmitLink}
-        >
+        > 
         <Button
           className={classes.submitBtn}
           variant='contained'

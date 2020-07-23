@@ -83,7 +83,7 @@ const ArtInfo = () => {
       <ServerErr /> :
       artUser ? (
         <div>
-        <SecondHeader pageName='Details' />
+        <SecondHeader pageName='التفاصيل' />
           <div className={classes.root}>
             <img
               src={artUser[0].photo_url}

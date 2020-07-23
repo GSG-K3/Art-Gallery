@@ -2,7 +2,6 @@ const cloudinary = require('cloudinary').v2
 const uploadImage = (req, res) => {
   const file = req.files.Image
   cloudinary.uploader.upload(file.tempFilePath, (err, result) => {
-    console.log('Error:', err)
     if (err) {
       return res.status(400).json({ msg: 'error in uploading image', err })
     }

@@ -7,13 +7,13 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 
 
 let SignupSchema = yup.object().shape({
- name: yup.string().min(3).max(20).required("Thissss field is required."),
+ name: yup.string().min(3).max(20).required("هذا الحقل مطلوب"),
   email: yup
     .string()
     .email()
     .min(6)
-    .required("This field is required."),
-    phone: yup.string().matches(phoneRegExp, 'Phone number is not valid')
+    .required("هذا الحقل مطلوب"),
+    phone: yup.string().matches(phoneRegExp, 'رقم الهاتف مطلوب')
 
 
 });
