@@ -4,9 +4,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 400,
     flexGrow: 1,
-    position: 'sticky',
-    zIndex: 1,
-    top: 0,
   },
   addIcon: {
     padding: '10',
@@ -19,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '18px',
     margin: theme.spacing(1),
     zIndex: 1,
-    position: 'sticky',
     marginLeft: 200,
     backgroundColor: '#6202EE',
     borderRadius: 50,
@@ -28,10 +24,14 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'none',
     marginBottom: 70,
   },
-
+  buttonDiv: {
+    position: 'fixed',
+    bottom: 0,
+    zIndex: 1,
+  },
   addArtBtn: {
     textDecoration: 'none',
-    color: 'none',
+    color: 'white',
   },
 }));
 

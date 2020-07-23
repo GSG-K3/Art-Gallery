@@ -49,10 +49,16 @@ const Profile = (props) => {
             <ProfileHeader pageName='Your Profile' artistName={artistValue} />
           ) : null}
           <Tabs artistName={artistValue} />
-          {idApi === id ? <AddButton pathId={idApi} /> : null}
+          {idApi === id ?
+          <div className={classes.buttonDiv}>
+           <AddButton  pathId={idApi} /> 
+           </div>
+           : null}
         </div>
       ) : null}
+      <div className={classes.buttonDiv} >
       <Navbar />
+      </div>
     </Grid>
   );
 };
