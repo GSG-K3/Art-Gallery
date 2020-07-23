@@ -5,17 +5,17 @@ import Fab from '@material-ui/core/Fab';
 import useStyles from './style';
 import { Link } from 'react-router-dom';
 
-function AddButton({pathId}) {
+function AddButton({ pathId }) {
   const classes = useStyles();
   return (
     <div>
       <Tooltip title='Add' aria-label='add'>
-        <Fab color='primary' className={classes.fab}>
-          <Link to= {`/addart/${pathId}`} className = {classes.addArtBtn}>
+        <Link to={`/addart/${pathId}`} className={classes.addArtBtn}>
+          <Fab color='primary' className={classes.fab}>
             <AddIcon className={classes.addIcon} />
             إضافة قطعة فنية جديدة
-          </Link>
-        </Fab>
+          </Fab>
+        </Link>
       </Tooltip>
     </div>
   );
